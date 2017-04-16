@@ -1,0 +1,40 @@
+.btn-secondary {
+  margin-bottom: 5px;
+}
+
+.caption {
+  height: 200px;
+}
+
+.flex-row  {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.03);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: 'Lato', sans-serif;
+  }
+
+
+#custom-search-input{
+    padding: 2px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    border-left: solid 1px #ccc;
+}
