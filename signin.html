@@ -11,6 +11,9 @@
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="homepage.css">
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
   </head>
 
   <body>
@@ -31,9 +34,43 @@
       <a style = "margin-left: 44%; margin-top: 40px" href="https://www.google.com">Help I forgot my password</a>
     </div>
     <div>
-      <a class="btn btn-primary" href="#" style = "margin-top: 20px; margin-left: 43%;">Register</a>
-      <a class="btn btn-primary" href="#" style = "margin-top: 20px; margin-left: 20px;">Log In</a>
+      <a class="btn btn-primary" href="#" onclick="register(this.form)"  style = "margin-top: 20px; margin-left: 43%;">Register</a>
+      <a class="btn btn-primary" href="#" onclick="login(usr, pwd)" style = "margin-top: 20px; margin-left: 20px;">Log In</a>
     </div>
+
+    <script language="javascript">
+      function login(usr, pwd) {
+        /*the following code checkes whether the entered userid and password are matching*/
+        if (usr.value != "" && pwd.value != "") {
+          sessionStorage.setItem('loggedIn', true);
+          sessionStorage.setItem('userName', usr.value);
+
+          if (sessionStorage.getItem('loggedIn')) {
+            //redirect to page
+            window.location.href = "homepage.html";
+            /*opens the target page while Id & password matches*/
+          }
+          else {
+            //show validation message
+            alert("Not logged in!");
+          }
+        }
+        else {
+          //show validation message
+          alert("Error Password or Username");
+        }
+      }
+
+      function register(form) {
+
+      }
+
+      $(document).ready(function()
+      {
+        sessionStorage.clear();
+      });
+
+    </script>
 
   </body>
 
