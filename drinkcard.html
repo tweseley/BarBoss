@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Register</title>
+
+    <!-- Bootstrap -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="homepage.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  </head>
+
+  <body>
+    <div>
+      <button type="button" class="btn btn-default btn-sm" style = "margin-left: 20px;">
+        <span class="glyphicon glyphicon-home"></span> Home
+      </button>
+
+      <div style = "float: right">
+        <label id="userName" style = "font-family: georgia; font-weight: 100;"></label>
+        <a class="btn btn-primary" href="#" onclick="logout()" style = "margin-left: 20px; margin-right: 20px;">Log Out</a>
+      </div>
+    </div>
+
+
+        <div class="thumbnail" style="margin-top: 40px;height: 600px;width: 1000px;margin-left: 10%;" >
+          <img src="http://cdn-img.health.com//sites/default/files/wp_migrated_images/skinnygirl-mint-mojito-400x400.jpg" style = "width: 300px; float: left; margin-right: 20px">
+          <div class="caption" style = "margin-bottom: 80px">
+            <h3 style = "font-size: 60px; text-align: center">Mint Mojito</h3>
+              <ul style = "font-size: 20px; margin-left: 400px; margin-top: 40px">
+                <li>10 mint leaves</li>
+                <li>1 cup ice cubes</li>
+                <li>1.5 ounces rum</li>
+                <li>2 tablespoons sugar</li>
+                <li>1/2 cup club soda</li>
+                <div>
+                  muddle mint, add ice, serve with straw
+                </div>
+              </ul>
+
+              <div class="form-group">
+                <label for="comment">Comments:</label>
+                <textarea class="form-control" style = "width: 30%" rows="5" id="comment"></textarea>
+              </div>
+
+              <div style = "margin-top: 40px; margin-left: 60%">
+                <button type="button" class="btn btn-success">Send to Bar</button>
+              </div>
+
+          </div>
+        </div>
+
+
+  </body>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
