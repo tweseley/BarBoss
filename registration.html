@@ -23,28 +23,48 @@
 
     <div style = "width: 30%; margin-left: 35%; margin-top: 3%">
       <div class="form-group">
-        <input type="text" class="form-control" id="usr" placeholder="What's your email...">
+        <input type="text" class="form-control" id="email" placeholder="What's your email...">
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" id="usr" placeholder="Choose a username...">
+        <input type="text" class="form-control" id="userName" placeholder="Choose a username...">
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" id="pwd" placeholder="Create a password...">
+        <input type="password" class="form-control" id="userPassword" placeholder="Create a password...">
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" id="pwd" placeholder="Confirm your password...">
+        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password...">
       </div>
     </div>
 
     <div>
-      <a class="btn btn-primary" href="#" onclick="register(this.form)"  style = "margin-top: 10px; margin-left: 47%;">Register</a>
+      <a class="btn btn-primary" href="#" onclick="register(email, userName, userPassword, confirmPassword)"  style = "margin-top: 10px; margin-left: 47%;">Register</a>
     </div>
 
-    <div style = "margin-top: 30px;">
-      <a style = "margin-left: 44%; margin-top: 40px" href="">Sign in </a>
-      <a style = "margin-left: 10px; margin-right: 10px;" href=""> • </a>
-      <a style = "margin-top: 40px" href="">Skip Registration</a>
-    </div>
+    <script language="javascript">
+      function register(email, userName, password, confirmPassword) {
+        /*the following code checkes whether the entered userid and password are matching*/
+        if (email.value != "" && userName.value != "" && password.value != "" && confirmPassword.value != "") {
+          sessionStorage.setItem('email', email.value);
+          sessionStorage.setItem('userName', userName.value);
+          sessionStorage.setItem('password', password.value);
+
+          if (password.value == confirmPassword.value) {
+            //redirect to page
+            window.location.href = "signin.html";
+            /*opens the target page while Id & password matches*/
+          }
+          else {
+            //show validation message
+            alert("The passwords are not the same!");
+          }
+        }
+        else {
+          //show validation message
+          alert("Please fill out all fields.");
+        }
+      }
+
+    </script>
 
   </body>
 
