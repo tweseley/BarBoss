@@ -33,13 +33,14 @@
         <input type="password" class="form-control" id="userPassword" placeholder="Create a password...">
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password...">
+        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password..." onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('registerButton').click()">
       </div>
     </div>
 
     <div>
       <a class="btn btn-primary" href="#" onclick= window.location.href="signin.html" style = "margin-top: 20px; margin-left: 43%;">Back</a>
-      <a class="btn btn-primary" href="#" onclick="register(email, userName, userPassword, confirmPassword)"  style = "margin-top: 20px; margin-left: 20px;">Register</a>
+      <a class="btn btn-primary" href="#" id = "registerButton" onclick="register(email, userName, userPassword, confirmPassword)"  style = "margin-top: 20px; margin-left: 20px;">Register</a>
     </div>
 
     <script language="javascript">
@@ -52,7 +53,7 @@
 
           if (password.value == confirmPassword.value) {
             //redirect to page
-            window.location.href = "signin.html";
+            window.location.href = "registrationComplete.html";
             /*opens the target page while Id & password matches*/
           }
           else {
@@ -65,6 +66,12 @@
           alert("Please fill out all fields.");
         }
       }
+      document.documentElement.addEventListener("keyup", function(event) {
+          event.preventDefault();
+          if (event.keyCode == 13) {
+              document.getElementById("registerButton").click();
+          }
+      });
 
     </script>
 

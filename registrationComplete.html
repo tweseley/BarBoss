@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Registration Complete</title>
+
+    <!-- Bootstrap -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="homepage.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  </head>
+
+  <body background = "http://cdn.wonderfulengineering.com/wp-content/uploads/2014/10/simple-wallpaper-26.jpg">
+
+    <h1 style = "font-size: 25px; text-align: center; margin-top: 200px;">Registration is complete!</h1>
+    <h2 style = "font-size: 20px; text-align: center;">Please sign in below.</h2>
+
+    <div>
+      <a class="btn btn-primary" href="#" id = "loginButton" onclick= window.location.href="signin.html" style = "margin-top: 20px; margin-left: 47%;">Sign In</a>
+    </div>
+
+    <script language="javascript">
+        document.documentElement.addEventListener("keydown", function(event) {
+            event.preventDefault();
+            if (event.keyCode == 13) {
+                document.getElementById("loginButton").click();
+            }
+        });
+    </script>
+
+  </body>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
