@@ -53,16 +53,11 @@
             <h1 style = "text-align: center; font-size: 100px; font-family: cursive ">Bar Boss</h1>
           </div>
           <div id="custom-search-input" style = "margin-top: 10%; margin-bottom: 10%">
-              <div class="input-group col-md-12">
-                  <input type="text" class="form-control input-lg" placeholder="Search tags or a drink..." onkeydown = "if (event.keyCode == 13)
-                        document.getElementById('searchButton').click()"/>
-                  <span class="input-group-btn">
-                      <button id = "searchButton" class="btn btn-info btn-lg" type="button" onclick="search()">
               <div class="input-group col-md-12" id="search">
                   <input type="text" class="form-control input-lg" placeholder="Search tags or a drink..." id="results"/>
                   <span class="input-group-btn">
                     <a id="href" href="/searchresults.html?">
-                      <button class="btn btn-info btn-lg" type="button" onclick="search()">
+                      <button class="btn btn-info btn-lg" type="button">
                           <i class="glyphicon glyphicon-search"></i>
                       </button>
                     </a>

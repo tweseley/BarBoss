@@ -65,10 +65,6 @@
         window.location.href = "homepage.html";
       }
 
-      function drinkCard() {
-        window.location.href = "drinkcard.html";
-      }
-
       function popUp() {
         var popup = document.getElementById("myPopup");
         popup.classList.toggle("show");
@@ -109,8 +105,10 @@
               caption.append(button);
             }
             var div = $('<div>');
-            var button = $('<button>', {style: "margin-top: 7px", type: "button", class: "btn btn-warning", onclick: "drinkCard()"}).text("See Full Recipe");
-            div.append(button);
+            var drinkHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
+            var button = $('<button>', {style: "margin-top: 7px", type: "button", class: "btn btn-warning"}).text("See Full Recipe");
+            drinkHref.append(button);
+            div.append(drinkHref);
             var popup = $('<div>', {class: "popup", onclick: "popUp()"});
             var send = $('<button>', {style: "margin-top: 10px", type: "button", class: "btn btn-success"}).text("Send to Bar");
             var sent = $('<span>', {class: "popuptext2", id: "myPopup"}).text("Your drink has been sent to the bar");
