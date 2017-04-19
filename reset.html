@@ -23,6 +23,18 @@
 <h1 style = "font-size: 20px; text-align: center; margin-top: 200px;">Your password reset link has been sent!</h1>
 <h2 style = "font-size: 15px; text-align: center;">Please check your email for instructions on how to reset your password.</h2>
 
+<div>
+  <a class="btn btn-primary" id = "loginButton" href="#" onclick=window.location.href="signin.html"  style = "margin-top: 20px; margin-left: 43%;">Go Back to Login Page</a>
+</div>
+
+<script language="javascript">
+    document.documentElement.addEventListener("keydown", function(event) {
+        event.preventDefault();
+        if (event.keyCode == 13) {
+            document.getElementById("loginButton").click();
+        }
+    });
+</script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
