@@ -103,7 +103,7 @@
             for (var j=0; j<drink.tags.length; j++) {
               var tag = drink.tags[j];
               var drinkHref = $('<a>', {href: "/searchresults.html?results="+tag});
-              var button = $('<button>', {class: "btn btn-secondary", type: "button"}).text(tag);
+              var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black"}).text(tag);
               drinkHref.append(button);
               caption.append(drinkHref);
             }
