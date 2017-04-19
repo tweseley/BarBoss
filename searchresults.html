@@ -103,7 +103,7 @@
             for (var j=0; j<drink.tags.length; j++) {
               var tag = drink.tags[j];
               var drinkHref = $('<a>', {href: "/searchresults.html?results="+tag});
-              var button = $('<button>', {class: "btn btn-secondary", type: "button"}).text(tag);
+              var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black"}).text(tag);
               drinkHref.append(button);
               caption.append(drinkHref);
             }
@@ -114,7 +114,7 @@
             div.append(drinkHref);
             var popup = $('<div>', {class: "popup", onclick: "popUp()"});
             var send = $('<button>', {style: "margin-top: 10px", type: "button", class: "btn btn-success"}).text("Send to Bar");
-            var sent = $('<span>', {class: "popuptext2", id: "myPopup"}).text("Your drink has been sent to the bar");
+            var sent = $('<span>', {class: "popuptext2", id: "myPopup", style: "margin-left: 0px"}).text("Your drink has been sent to the bar");
             popup.append(send).append(sent);
             caption.append(div).append(popup);
             thumbnail.append(img).append(caption);
