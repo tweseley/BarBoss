@@ -45,7 +45,7 @@ var dryMartini = {href: "dryMartini", "name": "Dry Martini", "tags": ["gin", "ve
   "directions": "Add all the ingredients to a mixing glass and fill with ice. Stir until very cold and strain into a chilled cocktail glass. Garnish with a lemon twist.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2013/08/Dry-Martini.jpg"};
 
-var bloodyMary = {href: "bloodyMary", "name": "Bloody Mary", "tags": ["lemon", "lime", "vodka", "tomato juice", "tabasco sauce", "horseradish", "celery salt", "pepper", "paprika", "worcestershire sauce", "Old Birds"],
+var bloodyMary = {href: "bloodyMary", "name": "Bloody Mary", "tags": ["lemon", "lime", "vodka", "tomato juice", "tabasco sauce", "horseradish", "celery salt", "pepper", "paprika", "worcestershire sauce", "old birds"],
   "ingredients": ["1 Lemon wedge", "1 Lime wedge", "2 oz Vodka", "4 oz Tomato juice", "2 dashes Tabasco Sauce", "2 tsp Prepared horseradish", "2 dashes Worcestershire sauce", "1 pinch Celery salt", "1 pinch Ground black pepper", "1 pinch Smoked paprika"],
   "directions": "Pour some celery salt onto a small plate. Rub the juicy side of the lemon or lime wedge along the lip of a pint glass. Roll the outer edge of the glass in celery salt until fully coated. Fill with ice and set aside. Squeeze the lemon and lime wedges into a shaker and drop them in. Add the remaining ingredients and fill with ice. Shake gently and strain into the prepared glass. Garnish with a celery stalk and a lime wedge.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2011/09/10210138/bloody-mary-recipe.jpg"};
@@ -70,12 +70,12 @@ var irishCoffee = {href: "irishCoffee", "name": "Irish Coffee", "tags": ["irish 
   "directions": "Filling an Irish Coffee mug with hot water, let sit for 2 minutes, then discard the water. Add the whiskey and syrup to the mug, and fill with the coffee. Top with an inch of unsweetened lightly whipped cream.",
   "url": "http://farm9.staticflickr.com/8518/8533118060_d259ff043d_o.jpg"};
 
-var mintJulep = {href: "mintJulep", "name": "Mint Julep", "tags": ["mint", "simple syrup", "bourbon", "sours", "Juleps and Smashes"],
+var mintJulep = {href: "mintJulep", "name": "Mint Julep", "tags": ["mint", "simple syrup", "bourbon", "sours", "juleps and smashes"],
   "ingredients": [".25 oz simple syrup", "8  Mint leaves", "2 oz Bourbon"],
   "directions": "In a Julep cup or rocks glass, lightly muddle the mint and syrup. Add the bourbon and pack tightly with crushed ice. Stir until the cup is frosted on the outside. Top with more crushed ice to form an ice dome and garnish with a few drops of bitters, if desired, and a mint sprig.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2013/04/Mint-Julep.jpg"};
 
-var mimosa = {href: "mimosa", "name": "Mimosa", "tags": ["sparkling wine", "orange juice", "Champagne and Cocktails"],
+var mimosa = {href: "mimosa", "name": "Mimosa", "tags": ["sparkling wine", "orange juice", "champagne and cocktails"],
   "ingredients": ["3 oz Orange juice", "3 oz Sparkling wine, chilled"],
   "directions": "Add the orange juice to a Champagne flute. Fill with sparkling wine.",
   "url": "https://www.abc.virginia.gov/library/products/images/recipes/mimosa.jpg?h=400&w=311&la=en&hash=198206195196BF614C59D13D8D7EA2A27CE465DF"};
@@ -85,7 +85,7 @@ var plantersPunch = {href: "plantersPunch", "name": "Planters Punch", "tags": ["
   "directions": "Pour the ingredients into a mixing glass filled with ice cubes. Shake well. Strain into a highball glass filled with ice cubes. Top with club soda if you want. Garnish with seasonal fruits.",
   "url": "https://fthmb.tqn.com/lwS-G0Tlx8lXPFaaoi1zgQix0fI=/960x0/filters:no_upscale()/about/Planters-punch-GettyImages-569035115-589e1ae23df78c4758e4f4c9.jpg"};
 
-var tomCollins = {href: "tomCollins", "name": "Tom Collins", "tags": ["lemon", "simple syrup", "club soda", "Highballs, Collinses, and Fizzes"],
+var tomCollins = {href: "tomCollins", "name": "Tom Collins", "tags": ["lemon", "simple syrup", "club soda", "highballs, collinses, and fizzes"],
   "ingredients": [".75 oz Fresh lemon juice", ".75 oz Simple syrup", "1.5 oz Gin", "splash Club soda"],
   "directions": "Add the lemon juice, simple syrup and gin to a shaker and fill with ice. Shake well and strain into a highball or Collins glass filled with fresh ice. Top with club soda and garnish with a lemon wheel and a cherry.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2010/12/tom-collins.jpg"};
@@ -95,7 +95,7 @@ var negroni = {href: "negroni", "name": "Negroni", "tags": ["gin", "campari", "v
   "directions": "Add all of the ingredients to an Old Fashioned glass and fill with ice. Stir until cold, and garnish with an orange half-wheel.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2013/04/18110158/negroni-720x720-recipe.jpg"};
 
-var darkAndStormy = {href: "darkAndStormy", "name": "Dark and Stormy", "tags": ["ginger beer", "rum", "lime", "Highballs, Collinses, and Fizzes"],
+var darkAndStormy = {href: "darkAndStormy", "name": "Dark and Stormy", "tags": ["ginger beer", "rum", "lime", "highballs, collinses, and fizzes"],
   "ingredients": [".75 oz fresh lime juice", "4 oz ginger beer", "2 oz Rum"],
   "directions": "Fill a tall glass with ice, and add the rum. Top with the ginger beer. Garnish with a lime wedge.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2016/10/04133803/dark-n-stormy-720sq.jpg"};
@@ -115,12 +115,12 @@ var caipirinha = {href: "caipirinha", "name": "Caipirinha", "tags": ["lime", "su
   "directions": "To make a Caipirinha first, in a double Old Fashioned glass, muddle the sugar and lime. Fill with ice and add the cachaca. Stir briefly and garnish with a lime wheel if desired.",
   "url": "https://lifeisbutalabyrinth.files.wordpress.com/2013/11/caipirinha_024.jpg"};
 
-var whiteRussian = {href: "whiteRussian", "name": "White Russian", "tags": ["vodka", "kahlua", "heavy cream", "Duos and Trios"],
+var whiteRussian = {href: "whiteRussian", "name": "White Russian", "tags": ["vodka", "kahlua", "heavy cream", "duos and trios"],
   "ingredients": ["2 oz Vodka", "1 oz Kahlua", "1 oz Heavy Cream"],
   "directions": "Add the vodka and Kahlua to an Old Fashioned glass filled with ice. Top with a large splash of heavy cream and stir.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2011/09/02120028/white-russian-720x720-recipe.jpg"};
 
-var fortWashingtonFlip = {href: "fortWashingtonFlip", "name": "Fort Washington Flip", "tags": ["egg", "applejack", "Flips and Nogs"],
+var fortWashingtonFlip = {href: "fortWashingtonFlip", "name": "Fort Washington Flip", "tags": ["egg", "applejack", "flips and nogs"],
   "ingredients": ["1.5 oz Applejack", "0.75 oz Benedictine", "0.5 oz Maple Syrup", "1 egg"],
   "directions": "Pour ingredients into a cocktail shaker; add the egg, fill with ice and shake very vigorously for at least 10 seconds. Strain into chilled cocktail glass; garnish with a grating of fresh nutmeg.",
   "url": "http://www.seriouseats.com/recipes/assets_c/2011/01/20110127ftwashington-thumb-625xauto-133898.jpg"};
