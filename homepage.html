@@ -116,7 +116,7 @@
             var thumbnail = $('<div>', {class: "thumbnail"});
             var img = $('<img>', {src: drink.url, style: "width: 300px; height:200px"});
             var caption = $('<div>', {class: "caption"});
-            var title = $('<h3>').text(drink.name);
+            var title = $('<h3>', {style: "color: black"}).text(drink.name);
             var titleHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
             titleHref.append(title);
             var imageHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});

@@ -98,7 +98,7 @@
             var thumbnail = $('<div>', {class: "thumbnail", style: "width: 700px; margin-left: 23%" });
             var img = $('<img>', {src: drink.url, style: "width: 200px; height:200px; float: left; margin-right: 20px"});
             var caption = $('<div>', {class: "caption", style: "margin-bottom: 80px"})
-            var header = $('<h3>').text(drink.name);
+            var header = $('<h3>,' {style: "color: black"}).text(drink.name);
             caption.append(header);
             for (var j=0; j<drink.tags.length; j++) {
               var tag = drink.tags[j];
