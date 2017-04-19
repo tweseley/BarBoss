@@ -99,7 +99,11 @@
             var img = $('<img>', {src: drink.url, style: "width: 200px; height:200px; float: left; margin-right: 20px"});
             var caption = $('<div>', {class: "caption", style: "margin-bottom: 80px"})
             var header = $('<h3>', {style: "color: black"}).text(drink.name);
-            caption.append(header);
+            var headerHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
+            headerHref.append(header);
+            var imageHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
+            imageHref.append(img);
+            caption.append(headerHref);
             for (var j=0; j<drink.tags.length; j++) {
               var tag = drink.tags[j];
               var drinkHref = $('<a>', {href: "/searchresults.html?results="+tag});
@@ -117,7 +121,7 @@
             var sent = $('<span>', {class: "popuptext2", id: "myPopup", style: "margin-left: 0px"}).text("Your drink has been sent to the bar");
             popup.append(send).append(sent);
             caption.append(div).append(popup);
-            thumbnail.append(img).append(caption);
+            thumbnail.append(imageHref).append(caption);
             body.append(thumbnail);
           }
         }
