@@ -32,75 +32,11 @@
 
     <div>
       <div class="form-group" style="margin-top: 40px; margin-bottom: 40px; width: 50%; margin-left: 25%;">
-        <input class="form-control">
+        <input class="form-control" id="input">
       </div>
     </div>
 
-
-    <div class="thumbnail" style = "width: 700px; margin-left: 23%" >
-      <img src="http://cdn-img.health.com//sites/default/files/wp_migrated_images/skinnygirl-mint-mojito-400x400.jpg" style = "width: 200px; height:200px; float: left; margin-right: 20px">
-      <div class="caption" style = "margin-bottom: 80px">
-        <h3>Mint Mojito</h3>
-          <button type="button" class="btn btn-secondary">Rum</button>
-          <button type="button" class="btn btn-secondary">Lime</button>
-          <button type="button" class="btn btn-secondary">Mint</button>
-          <button type="button" class="btn btn-secondary">Sugar</button>
-          <button type="button" class="btn btn-secondary">Refreshing</button>
-          <button type="button" class="btn btn-secondary">Rum</button>
-          <button type="button" class="btn btn-secondary">Lime</button>
-          <button type="button" class="btn btn-secondary">Mint</button>
-          <button type="button" class="btn btn-secondary">Sugar</button>
-          <button type="button" class="btn btn-secondary">Refreshing</button>
-          <button type="button" class="btn btn-secondary">Rum</button>
-          <button type="button" class="btn btn-secondary">Lime</button>
-          <button type="button" class="btn btn-secondary">Mint</button>
-          <button type="button" class="btn btn-secondary">Sugar</button>
-          <button type="button" class="btn btn-secondary">Refreshing</button>
-
-          <div>
-            <button type="button" class="btn btn-warning" onclick="drinkCard()">See Full Recipe</button>
-          </div>
-
-          <div class="popup" onclick="popUp()">
-            <button type="button" class="btn btn-success">Send to Bar</button>
-            <span class="popuptext2" id="myPopup">Your drink has been sent to the bar!</span>
-          </div>
-
-      </div>
-    </div>
-
-
-    <div class="thumbnail" style = "width: 700px; margin-left: 23%" >
-      <img src="http://cdn-img.health.com//sites/default/files/wp_migrated_images/skinnygirl-mint-mojito-400x400.jpg" style = "width: 200px; height:200px; float: left; margin-right: 20px">
-      <div class="caption" style = "margin-bottom: 80px">
-        <h3>Mint Mojito</h3>
-          <button type="button" class="btn btn-secondary">Rum</button>
-          <button type="button" class="btn btn-secondary">Lime</button>
-          <button type="button" class="btn btn-secondary">Mint</button>
-          <button type="button" class="btn btn-secondary">Sugar</button>
-          <button type="button" class="btn btn-secondary">Refreshing</button>
-          <button type="button" class="btn btn-secondary">Rum</button>
-          <button type="button" class="btn btn-secondary">Lime</button>
-          <button type="button" class="btn btn-secondary">Mint</button>
-          <button type="button" class="btn btn-secondary">Sugar</button>
-          <button type="button" class="btn btn-secondary">Refreshing</button>
-          <button type="button" class="btn btn-secondary">Rum</button>
-          <button type="button" class="btn btn-secondary">Lime</button>
-          <button type="button" class="btn btn-secondary">Mint</button>
-          <button type="button" class="btn btn-secondary">Sugar</button>
-          <button type="button" class="btn btn-secondary">Refreshing</button>
-
-          <div>
-            <button type="button" class="btn btn-warning" onclick="drinkCard()">See Full Recipe</button>
-          </div>
-
-          <div class="popup" onclick="popUp()">
-            <button type="button" class="btn btn-success">Send to Bar</button>
-            <span class="popuptext2" id="myPopup">Your drink has been sent to the bar!</span>
-          </div>
-
-      </div>
-    </div>
+    <div id="drinkBody"></div>
 
     <script language="javascript">
       function logout() {
@@ -126,6 +62,59 @@
           }, 900);
         }, 3000);
       }
+
+      function isMatch(drink, search) {
+        var lowerSearch = search.toLowerCase();
+        var tags = jQuery.extend(true, [], drink.tags);
+        tags[drink.tags.length] = drink.name.toLowerCase();
+        for (var i=0; i<tags.length; i++){
+          if (lowerSearch.includes(tags[i])) {
+            return true;
+          }
+        }
+        return false;
+      };
+
+      function populateDrinks() {
+        var body = $('#drinkBody');
+        var searchBody = $('#input').val();
+        for (var i=0; i<drinksList.length; i++) {
+          var drink = drinksList[i];
+          if (isMatch(drink, searchBody)) {
+            var thumbnail = $('<div>', {class: "thumbnail", style: "width: 700px; margin-left: 23%" });
+            var img = $('<img>', {src: drink.url, style: "width: 200px; height:200px; float: left; margin-right: 20px"});
+            var caption = $('<div>', {class: "caption", style: "margin-bottom: 80px"})
+            var header = $('<h3>').text(drink.name);
+            caption.append(header);
+            for (var j=0; j<drink.tags.length; j++) {
+              var tag = drink.tags[j];
+              var button = $('<button>', {class: "btn btn-secondary", type: "button"}).text(tag);
+              caption.append(button);
+            }
+            var div = $('<div>');
+            var button = $('<button>', {style: "margin-top: 7px", type: "button", class: "btn btn-warning", onclick: "drinkCard()"}).text("See Full Recipe");
+            div.append(button);
+            var popup = $('<div>', {class: "popup", onclick: "popUp()"});
+            var send = $('<button>', {style: "margin-top: 10px", type: "button", class: "btn btn-success"}).text("Send to Bar");
+            var sent = $('<span>', {class: "popuptext2", id: "myPopup"}).text("Your drink has been sent to the bar");
+            popup.append(send).append(sent);
+            caption.append(div).append(popup);
+            thumbnail.append(img).append(caption);
+            body.append(thumbnail);
+          }
+        }
+      }
+
+      $(document).ready(function() {
+        $.urlParam = function (name) {
+          var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+          return results[1] || 0;
+        }
+        var results = $.urlParam('results');
+        var input = $('#input');
+        input.val(decodeURIComponent(results));
+        populateDrinks();
+      });
     </script>
 
 
