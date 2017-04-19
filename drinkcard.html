@@ -13,6 +13,7 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="drinks.js"></script>
 
   </head>
 
@@ -28,34 +29,34 @@
       </div>
     </div>
 
+    <div class="thumbnail" style="margin-top: 40px; min-height: 600px; width: 1000px;margin-left: 10%;" id=thumbnail>
+    <div class="row">
+      <div class="col-xs-4" id="left-col">
+        <div class="caption" style = "margin-bottom: 80px">
 
-        <div class="thumbnail" style="margin-top: 40px;height: 600px;width: 1000px;margin-left: 10%;" >
-          <img src="http://cdn-img.health.com//sites/default/files/wp_migrated_images/skinnygirl-mint-mojito-400x400.jpg" style = "width: 300px; float: left; margin-right: 20px">
-          <div class="caption" style = "margin-bottom: 80px">
-            <h3 style = "font-size: 60px; text-align: center">Mint Mojito</h3>
-              <ul style = "font-size: 20px; margin-left: 400px; margin-top: 40px">
-                <li>10 mint leaves</li>
-                <li>1 cup ice cubes</li>
-                <li>1.5 ounces rum</li>
-                <li>2 tablespoons sugar</li>
-                <li>1/2 cup club soda</li>
-                <div>
-                  muddle mint, add ice, serve with straw
-                </div>
-              </ul>
-
-              <div class="form-group">
-                <label for="comment">Comments:</label>
-                <textarea class="form-control" style = "width: 30%" rows="5" id="comment"></textarea>
-              </div>
-
-              <div class="popup" onclick="popUp()" style = "margin-top: 40px; margin-left: 60%">
-                <button type="button" class="btn btn-success">Send to Bar</button>
-                <span class="popuptext" id="myPopup">Your drink has been sent to the bar!</span>
-              </div>
-
-          </div>
+            <div class="form-group" style="float: left">
+              <label for="comment">Comments:</label>
+              <textarea class="form-control" style = "width: 250px" rows="5" id="comment"></textarea>
+            </div>
+            <div class="popup" onclick="popUp()" style = "margin-top: 20px; width:100%;">
+              <button type="button" class="btn btn-success">Send to Bar</button>
+              <span class="popuptext" id="myPopup">Your drink has been sent to the bar!</span>
+            </div>
+      </div>
+    </div>
+      <div class="col-xs-8">
+        <div id="dynamic">
         </div>
+
+      </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
 
     <script language="javascript">
       function logout() {
@@ -66,6 +67,38 @@
       function home() {
         window.location.href = "homepage.html";
       }
+
+      function populateDrink(drink) {
+        var div = $('#dynamic');
+        var title = $('<h3>', {style: "font-size: 60px; text-align: center"}).text(drink.name);
+        var ul = $('<ul>', {style: "font-size: 20px; margin-top: 40px"})
+        for (var i=0; i<drink.ingredients.length; i++){
+          var li = $('<li>').text(drink.ingredients[i]);
+          ul.append(li);
+        }
+        var instructions = drink.directions;
+        ul.append($('<br>')).append(instructions);
+        div.prepend(ul).prepend(title);
+        $('#left-col').prepend($('<img>', {src: drink.url, style: "width: 300px; float: left; margin-right: 20px; margin-bottom: 60px"}));
+      }
+
+      $(document).ready(function() {
+        $.urlParam = function (name) {
+          var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+          return results[1] || 0;
+        }
+
+        var drink = $.urlParam('drink');
+        var drinkObj;
+        for (var i=0; i<drinksList.length; i++) {
+          if (drinksList[i].href == drink) {
+            drinkObj = drinksList[i];
+            break;
+          }
+        }
+        populateDrink(drinkObj);
+
+      })
 
       // When the user clicks on <div>, open the popup
       function popUp() {
