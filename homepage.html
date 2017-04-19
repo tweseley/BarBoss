@@ -29,19 +29,19 @@
             <button class="btn btn-primary dropdown-toggle" style = "background-color: forestgreen" type="button" data-toggle="dropdown">Show Categories
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li><a href="#">Ancestrals</a></li>
-              <li><a href="#">Champagne and Cocktails</a></li>
-              <li><a href="#">Duos and Trios</a></li>
-              <li><a href="#">Flips and Nogs</a></li>
-              <li><a href="#">Highballs, Collinses, and Fizzes</a></li>
-              <li><a href="#">Hot Drinks</a></li>
-              <li><a href="#">Juleps and Smashes</a></li>
-              <li><a href="#">Old Birds</a></li>
-              <li><a href="#">Pousse Family</a></li>
-              <li><a href="#">Punches</a></li>
-              <li><a href="#">Sours</a></li>
-              <li><a href="#">Spirit-Forward</a></li>
-              <li><a href="#">Tropical</a></li>
+              <li><a href="/searchresults.html?results=ancestral">Ancestrals</a></li>
+              <li><a href="/searchresults.html?results=champagne%20and%20cocktails">Champagne and Cocktails</a></li>
+              <li><a href="/searchresults.html?results=duos%20and%20trios">Duos and Trios</a></li>
+              <li><a href="/searchresults.html?results=flips%20and%20nogs">Flips and Nogs</a></li>
+              <li><a href="/searchresults.html?results=highballs%20and%20collinses%20and%20fizzes">Highballs, Collinses, and Fizzes</a></li>
+              <li><a href="/searchresults.html?results=hot%20drinks">Hot Drinks</a></li>
+              <li><a href="/searchresults.html?results=juleps%20and%20smashes">Juleps and Smashes</a></li>
+              <li><a href="/searchresults.html?results=old%20birds">Old Birds</a></li>
+              <li><a href="/searchresults.html?results=pousse%20family">Pousse Family</a></li>
+              <li><a href="/searchresults.html?results=punches">Punches</a></li>
+              <li><a href="/searchresults.html?results=sours">Sours</a></li>
+              <li><a href="/searchresults.html?results=spirit-foward">Spirit-Forward</a></li>
+              <li><a href="/searchresults.html?results=tropical">Tropical</a></li>
             </ul>
           </div>
 
@@ -125,8 +125,10 @@
             var num = Math.min(6, drink.tags.length)
             for (var j=0; j<num; j++) {
               var tag = drink.tags[j];
+              var drinkHref = $('<a>', {href: "/searchresults.html?results="+tag});
               var button = $('<button>', {class: "btn btn-secondary", type: "button"}).text(tag);
-              caption.append(button);
+              drinkHref.append(button);
+              caption.append(drinkHref);
             }
             container.append(thumbnail);
             thumbnail.append(imageHref);
