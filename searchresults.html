@@ -31,77 +31,30 @@
     </div>
 
     <div>
-      <div class="form-group" style="margin-top: 40px; margin-bottom: 40px; width: 50%; margin-left: 25%;">
-        <input class="form-control">
-      </div>
+      <div class="container">
+      	<div class="row">
+          <div class="col-xs-6 col-sm-4 col-lg-3"></div>
+          <div class="col-xs-12 col-sm-8 col-lg-6">
+            <div>
+              <h1 style = "text-align: center; font-size: 100px; font-family: cursive ">Bar Boss</h1>
+            </div>
+            <div id="custom-search-input" style = "margin-top: 10%; margin-bottom: 10%">
+                <div class="input-group col-md-12" id="search">
+                    <input type="text" class="form-control input-lg" placeholder="Search tags or a drink..." id="input" onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('searchButton').click()"/>
+                    <span class="input-group-btn">
+                      <a id="href" href="/searchresults.html?">
+                        <button id = "searchButton" class="btn btn-info btn-lg" type="button" onclick="search()">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                      </a>
+                    </span>
+                </div>
+            </div>
+          </div>
     </div>
 
-
-    <div class="thumbnail" style = "width: 700px;" >
-      <img src="http://cdn-img.health.com//sites/default/files/wp_migrated_images/skinnygirl-mint-mojito-400x400.jpg" style = "width: 200px; height:200px; float: left; margin-right: 20px">
-      <div class="caption" style = "margin-bottom: 80px">
-        <h3>Mint Mojito</h3>
-          <button type="button" class="btn btn-secondary">Rum</button>
-          <button type="button" class="btn btn-secondary">Lime</button>
-          <button type="button" class="btn btn-secondary">Mint</button>
-          <button type="button" class="btn btn-secondary">Sugar</button>
-          <button type="button" class="btn btn-secondary">Refreshing</button>
-          <button type="button" class="btn btn-secondary">Rum</button>
-          <button type="button" class="btn btn-secondary">Lime</button>
-          <button type="button" class="btn btn-secondary">Mint</button>
-          <button type="button" class="btn btn-secondary">Sugar</button>
-          <button type="button" class="btn btn-secondary">Refreshing</button>
-          <button type="button" class="btn btn-secondary">Rum</button>
-          <button type="button" class="btn btn-secondary">Lime</button>
-          <button type="button" class="btn btn-secondary">Mint</button>
-          <button type="button" class="btn btn-secondary">Sugar</button>
-          <button type="button" class="btn btn-secondary">Refreshing</button>
-
-          <div>
-            <button type="button" class="btn btn-warning" onclick="drinkCard()">See Full Recipe</button>
-          </div>
-
-          <div class="popup" onclick="popUp()">
-            <button type="button" class="btn btn-success">Send to Bar</button>
-            <span class="popuptext2" id="myPopup">Your drink has been sent to the bar!</span>
-          </div>
-
-      </div>
-    </div>
-
-
-
-    <div class="thumbnail" style = "width: 700px;" >
-      <img src="http://cdn-img.health.com//sites/default/files/wp_migrated_images/skinnygirl-mint-mojito-400x400.jpg" style = "width: 200px; height:200px; float: left; margin-right: 20px">
-      <div class="caption" style = "margin-bottom: 80px">
-        <h3>Mint Mojito</h3>
-          <button type="button" class="btn btn-secondary">Rum</button>
-          <button type="button" class="btn btn-secondary">Lime</button>
-          <button type="button" class="btn btn-secondary">Mint</button>
-          <button type="button" class="btn btn-secondary">Sugar</button>
-          <button type="button" class="btn btn-secondary">Refreshing</button>
-          <button type="button" class="btn btn-secondary">Rum</button>
-          <button type="button" class="btn btn-secondary">Lime</button>
-          <button type="button" class="btn btn-secondary">Mint</button>
-          <button type="button" class="btn btn-secondary">Sugar</button>
-          <button type="button" class="btn btn-secondary">Refreshing</button>
-          <button type="button" class="btn btn-secondary">Rum</button>
-          <button type="button" class="btn btn-secondary">Lime</button>
-          <button type="button" class="btn btn-secondary">Mint</button>
-          <button type="button" class="btn btn-secondary">Sugar</button>
-          <button type="button" class="btn btn-secondary">Refreshing</button>
-
-          <div>
-            <button type="button" class="btn btn-warning" onclick="drinkCard()">See Full Recipe</button>
-          </div>
-
-          <div class="popup" onclick="popUp()">
-            <button type="button" class="btn btn-success">Send to Bar</button>
-            <span class="popuptext2" id="myPopup">Your drink has been sent to the bar!</span>
-          </div>
-
-      </div>
-    </div>
+    <div id="drinkBody"></div>
 
     <script language="javascript">
       function logout() {
@@ -111,10 +64,6 @@
 
       function home() {
         window.location.href = "homepage.html";
-      }
-
-      function drinkCard() {
-        window.location.href = "drinkcard.html";
       }
 
       function popUp() {
@@ -127,6 +76,74 @@
           }, 900);
         }, 3000);
       }
+
+      function isMatch(drink, search) {
+        var lowerSearch = search.toLowerCase();
+        var tags = jQuery.extend(true, [], drink.tags);
+        tags[drink.tags.length] = drink.name.toLowerCase();
+        for (var i=0; i<tags.length; i++){
+          if (lowerSearch.includes(tags[i])) {
+            return true;
+          }
+        }
+        return false;
+      };
+
+      function populateDrinks() {
+        var body = $('#drinkBody');
+        var searchBody = $('#input').val();
+        for (var i=0; i<drinksList.length; i++) {
+          var drink = drinksList[i];
+          if (isMatch(drink, searchBody)) {
+            var thumbnail = $('<div>', {class: "thumbnail", style: "width: 700px; margin-left: 23%" });
+            var img = $('<img>', {src: drink.url, style: "width: 200px; height:200px; float: left; margin-right: 20px"});
+            var caption = $('<div>', {class: "caption", style: "margin-bottom: 80px"})
+            var header = $('<h3>', {style: "color: black"}).text(drink.name);
+            var headerHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
+            headerHref.append(header);
+            var imageHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
+            imageHref.append(img);
+            caption.append(headerHref);
+            for (var j=0; j<drink.tags.length; j++) {
+              var tag = drink.tags[j];
+              var drinkHref = $('<a>', {href: "/searchresults.html?results="+tag});
+              var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black"}).text(tag);
+              drinkHref.append(button);
+              caption.append(drinkHref);
+            }
+            var div = $('<div>');
+            var drinkHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
+            var button = $('<button>', {style: "margin-top: 7px", type: "button", class: "btn btn-warning"}).text("See Full Recipe");
+            drinkHref.append(button);
+            div.append(drinkHref);
+            var popup = $('<div>', {class: "popup", onclick: "popUp()"});
+            var send = $('<button>', {style: "margin-top: 10px", type: "button", class: "btn btn-success"}).text("Send to Bar");
+            var sent = $('<span>', {class: "popuptext2", id: "myPopup", style: "margin-left: 0px"}).text("Your drink has been sent to the bar");
+            popup.append(send).append(sent);
+            caption.append(div).append(popup);
+            thumbnail.append(imageHref).append(caption);
+            body.append(thumbnail);
+          }
+        }
+      }
+
+      $(document).ready(function() {
+        $('#input').keyup(function() {
+          var href = $('#href');
+          var searchHref = $('<a>', {href: "/searchresults.html?results="+$(this).val()});
+          href.attr('href', searchHref.attr('href'));
+        });
+
+        $.urlParam = function (name) {
+          var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+          return results[1] || 0;
+        }
+        var results = $.urlParam('results');
+        var input = $('#input');
+        input.val(decodeURIComponent(results));
+        populateDrinks();
+
+      });
     </script>
 
 

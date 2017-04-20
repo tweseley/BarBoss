@@ -16,9 +16,10 @@
 
   </head>
 
-  <body>
+  <body background = "http://cdn.wonderfulengineering.com/wp-content/uploads/2014/10/simple-wallpaper-26.jpg">
 
-    <h1 style = "font-size: 70px; text-align: center; margin-top: 40px;">Register</h1>
+
+    <h1 style = "font-size: 70px; text-align: center; margin-top: 40px; color: white">Register</h1>
 
 
     <div style = "width: 30%; margin-left: 35%; margin-top: 3%">
@@ -32,12 +33,14 @@
         <input type="password" class="form-control" id="userPassword" placeholder="Create a password...">
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password...">
+        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password..." onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('registerButton').click()">
       </div>
     </div>
 
     <div>
-      <a class="btn btn-primary" href="#" onclick="register(email, userName, userPassword, confirmPassword)"  style = "margin-top: 10px; margin-left: 47%;">Register</a>
+      <a class="btn btn-primary" href="#" onclick= window.location.href="signin.html" style = "margin-top: 20px; margin-left: 43%;">Back</a>
+      <a class="btn btn-primary" href="#" id = "registerButton" onclick="register(email, userName, userPassword, confirmPassword)"  style = "margin-top: 20px; margin-left: 20px;">Register</a>
     </div>
 
     <script language="javascript">
@@ -50,7 +53,7 @@
 
           if (password.value == confirmPassword.value) {
             //redirect to page
-            window.location.href = "signin.html";
+            window.location.href = "registrationComplete.html";
             /*opens the target page while Id & password matches*/
           }
           else {
@@ -62,6 +65,16 @@
           //show validation message
           alert("Please fill out all fields.");
         }
+      }
+      document.documentElement.addEventListener("keyup", function(event) {
+          event.preventDefault();
+          if (event.keyCode == 13) {
+              document.getElementById("registerButton").click();
+          }
+      });
+
+      window.onload = function() {
+          var input = document.getElementById("email").focus();
       }
 
     </script>

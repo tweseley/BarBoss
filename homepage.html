@@ -12,28 +12,56 @@
     <link rel="stylesheet" href="homepage.css">
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script src="drinks.js"></script>
 
   </head>
 
   <body>
 
+
+
     <div class="container">
     	<div class="row">
         <div class="col-xs-6 col-sm-4 col-lg-3">
-          <button type="button" style = "margin-left: 50%; margin-top: 75%;" class="btn btn-success">Show Categories</button>
+
+          <div class="dropdown" style = "margin-left: 50%; margin-top: 75%;" >
+            <button class="btn btn-primary dropdown-toggle" style = "background-color: forestgreen" type="button" data-toggle="dropdown">Show Categories
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="/searchresults.html?results=ancestral">Ancestrals</a></li>
+              <li><a href="/searchresults.html?results=champagne%20and%20cocktails">Champagne and Cocktails</a></li>
+              <li><a href="/searchresults.html?results=duos%20and%20trios">Duos and Trios</a></li>
+              <li><a href="/searchresults.html?results=flips%20and%20nogs">Flips and Nogs</a></li>
+              <li><a href="/searchresults.html?results=highballs%20and%20collinses%20and%20fizzes">Highballs, Collinses, and Fizzes</a></li>
+              <li><a href="/searchresults.html?results=hot%20drinks">Hot Drinks</a></li>
+              <li><a href="/searchresults.html?results=juleps%20and%20smashes">Juleps and Smashes</a></li>
+              <li><a href="/searchresults.html?results=old%20birds">Old Birds</a></li>
+              <li><a href="/searchresults.html?results=pousse%20family">Pousse Family</a></li>
+              <li><a href="/searchresults.html?results=punches">Punches</a></li>
+              <li><a href="/searchresults.html?results=sours">Sours</a></li>
+              <li><a href="/searchresults.html?results=spirit-foward">Spirit-Forward</a></li>
+              <li><a href="/searchresults.html?results=tropical">Tropical</a></li>
+            </ul>
+          </div>
+
+
+
     		</div>
         <div class="col-xs-12 col-sm-8 col-lg-6">
           <div>
             <h1 style = "text-align: center; font-size: 100px; font-family: cursive ">Bar Boss</h1>
           </div>
           <div id="custom-search-input" style = "margin-top: 10%; margin-bottom: 10%">
-              <div class="input-group col-md-12">
-                  <input type="text" class="form-control input-lg" placeholder="Search tags or a drink..." />
+              <div class="input-group col-md-12" id="search">
+                  <input type="text" class="form-control input-lg" placeholder="Search tags or a drink..." id="results" onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('searchButton').click()"/>
                   <span class="input-group-btn">
-                      <button class="btn btn-info btn-lg" type="button" onclick="search()">
+                    <a id="href" href="/searchresults.html?">
+                      <button class="btn btn-info btn-lg" id = "searchButton" type="button">
                           <i class="glyphicon glyphicon-search"></i>
                       </button>
+                    </a>
                   </span>
               </div>
           </div>
@@ -67,16 +95,17 @@
             window.location.href = "signin.html";
         }
 
-        function search() {
-          window.location.href = "searchresults.html";
-        }
-
         $(document).ready(function()
         {
-            authenticate();
-            $("#userName").text("Welcome, " + sessionStorage.getItem('userName'));
-            populateDrinks();
+          authenticate();
+          $("#userName").text("Welcome, " + sessionStorage.getItem('userName'));
+          populateDrinks();
 
+          $('#results').keyup(function() {
+            var href = $('#href');
+            var searchHref = $('<a>', {href: "/searchresults.html?results="+$(this).val()});
+            href.attr('href', searchHref.attr('href'));
+          });
         });
 
         function populateDrinks() {
@@ -86,8 +115,8 @@
             var container = $('<div>', {"class":"col-xs-6 col-sm-4 col-lg-3"});
             var thumbnail = $('<div>', {class: "thumbnail"});
             var img = $('<img>', {src: drink.url, style: "width: 300px; height:200px"});
-            var caption = $('<div>', {class: "caption"});
-            var title = $('<h3>').text(drink.name);
+            var caption = $('<div>', {class: "caption", style: "padding-top: 0px"});
+            var title = $('<h3>', {style: "font-family: georgia; color: black; text-align: center; padding-top: -10px;"}).text(drink.name);
             var titleHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
             titleHref.append(title);
             var imageHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
@@ -96,8 +125,10 @@
             var num = Math.min(6, drink.tags.length)
             for (var j=0; j<num; j++) {
               var tag = drink.tags[j];
-              var button = $('<button>', {class: "btn btn-secondary", type: "button"}).text(tag);
-              caption.append(button);
+              var drinkHref = $('<a>', {href: "/searchresults.html?results="+tag});
+              var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black"}).text(tag);
+              drinkHref.append(button);
+              caption.append(drinkHref);
             }
             container.append(thumbnail);
             thumbnail.append(imageHref);

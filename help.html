@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Help</title>
+
+  <!-- Bootstrap -->
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="homepage.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+</head>
+
+<body background = "http://cdn.wonderfulengineering.com/wp-content/uploads/2014/10/simple-wallpaper-26.jpg">
+
+
+
+<h1 style = "font-size: 70px; text-align: center; margin-top: 40px;">Find Your Password</h1>
+
+<div style = "width: 30%; margin-left: 35%; margin-top: 3%">
+  <div class="form-group">
+    <input type="text" class="form-control" id="emailID" placeholder="Email address..." onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('resetButton').click()">
+  </div>
+</div>
+
+<div>
+  <a class="btn btn-primary" id = "resetButton" href="#" onclick="reset(emailID)"  style = "margin-top: 20px; margin-left: 45%;">Reset Password</a>
+</div>
+
+<script language="javascript">
+    function reset(emailID) {
+        if (emailID.value != "") {
+            window.location.href = "reset.html";
+        }
+        else {
+            alert("No email address was typed in!");
+        }
+    }
+    document.documentElement.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode == 13) {
+            document.getElementById("resetButton").click();
+        }
+    });
+    window.onload = function() {
+        var input = document.getElementById("emailID").focus();
+    }
+</script>
+
+</body>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
