@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Register</title>
+    <title>Search Results</title>
 
     <!-- Bootstrap -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,13 +13,14 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="drinks.js"></script>
 
   </head>
 
   <body>
 
     <div>
-      <button type="button" class="btn btn-default btn-sm" style = "margin-left: 20px;">
+      <button type="button" class="btn btn-default btn-sm" style = "margin-left: 20px;" onclick="home()">
         <span class="glyphicon glyphicon-home"></span> Home
       </button>
 
@@ -55,10 +56,14 @@
           <button type="button" class="btn btn-secondary">Mint</button>
           <button type="button" class="btn btn-secondary">Sugar</button>
           <button type="button" class="btn btn-secondary">Refreshing</button>
-          <button type="button" class="btn btn-warning">See Full Recipe</button>
 
-          <div style = "margin-top: 40px">
+          <div>
+            <button type="button" class="btn btn-warning" onclick="drinkCard()">See Full Recipe</button>
+          </div>
+
+          <div class="popup" onclick="popUp()">
             <button type="button" class="btn btn-success">Send to Bar</button>
+            <span class="popuptext2" id="myPopup">Your drink has been sent to the bar!</span>
           </div>
 
       </div>
@@ -85,10 +90,14 @@
           <button type="button" class="btn btn-secondary">Mint</button>
           <button type="button" class="btn btn-secondary">Sugar</button>
           <button type="button" class="btn btn-secondary">Refreshing</button>
-          <button type="button" class="btn btn-warning">See Full Recipe</button>
 
-          <div style = "margin-top: 40px">
+          <div>
+            <button type="button" class="btn btn-warning" onclick="drinkCard()">See Full Recipe</button>
+          </div>
+
+          <div class="popup" onclick="popUp()">
             <button type="button" class="btn btn-success">Send to Bar</button>
+            <span class="popuptext2" id="myPopup">Your drink has been sent to the bar!</span>
           </div>
 
       </div>
@@ -98,6 +107,25 @@
       function logout() {
         // sessionStorage.clear();
         window.location.href = "signin.html";
+      }
+
+      function home() {
+        window.location.href = "homepage.html";
+      }
+
+      function drinkCard() {
+        window.location.href = "drinkcard.html";
+      }
+
+      function popUp() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+        setTimeout(function(){
+          popup.classList.toggle("hide");
+          setTimeout(function(){
+            popup.classList.toggle("show");
+          }, 900);
+        }, 3000);
       }
     </script>
 

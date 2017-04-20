@@ -1,5 +1,6 @@
 .btn-secondary {
   margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 .caption {
@@ -37,4 +38,92 @@ body {
     border: 0;
     color: #666666;
     border-left: solid 1px #ccc;
+}
+
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: #2e6da4;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -150px;
+}
+
+.popup .popuptext2 {
+    visibility: hidden;
+    width: 200px;
+    background-color: #2e6da4;
+    color: #fff;
+    font-size: 18.5px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top:50%;
+    left:50%;
+    height:75px;   /* adjust as per your needs */
+    margin-left:500px;   /* negative half of width above */
+    margin-top:-50px;   /* negative half of height above */
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+.popup .hide {
+    visibility: transparent;
+    -webkit-animation: fadeOut 1s;
+    animation: fadeOut 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
 }
