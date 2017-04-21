@@ -89,6 +89,13 @@
         return false;
       };
 
+      function getRelativeHref(href) {
+        var currentLocation = window.location.href;
+        var prefixArray = currentLocation.split('/');
+        var prefixArray = prefixArray.slice(0, prefixArray.length - 1);
+        return prefixArray.join('/') + href;
+      }
+
       function populateDrinks() {
         var body = $('#drinkBody');
         var searchBody = $('#input').val();
@@ -99,20 +106,20 @@
             var img = $('<img>', {src: drink.url, style: "width: 200px; height:200px; float: left; margin-right: 20px"});
             var caption = $('<div>', {class: "caption", style: "margin-bottom: 80px"})
             var header = $('<h3>', {style: "color: black"}).text(drink.name);
-            var headerHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
+            var headerHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             headerHref.append(header);
-            var imageHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
+            var imageHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             imageHref.append(img);
             caption.append(headerHref);
             for (var j=0; j<drink.tags.length; j++) {
               var tag = drink.tags[j];
-              var drinkHref = $('<a>', {href: "/searchresults.html?results="+tag});
+              var drinkHref = $('<a>', {href: getRelativeHref("/searchresults.html?results="+tag)});
               var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black"}).text(tag);
               drinkHref.append(button);
               caption.append(drinkHref);
             }
             var div = $('<div>');
-            var drinkHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
+            var drinkHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             var button = $('<button>', {style: "margin-top: 7px", type: "button", class: "btn btn-warning"}).text("See Full Recipe");
             drinkHref.append(button);
             div.append(drinkHref);
@@ -130,7 +137,7 @@
       $(document).ready(function() {
         $('#input').keyup(function() {
           var href = $('#href');
-          var searchHref = $('<a>', {href: "/searchresults.html?results="+$(this).val()});
+          var searchHref = $('<a>', {href: getRelativeHref("/searchresults.html?results="+$(this).val())});
           href.attr('href', searchHref.attr('href'));
         });
 
@@ -144,6 +151,7 @@
         populateDrinks();
 
       });
+
     </script>
 
 

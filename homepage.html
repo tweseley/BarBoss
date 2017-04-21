@@ -28,8 +28,8 @@
           <div class="dropdown" style = "margin-left: 50%; margin-top: 75%;" >
             <button class="btn btn-primary dropdown-toggle" style = "background-color: forestgreen" type="button" data-toggle="dropdown">Show Categories
             <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="/searchresults.html?results=ancestral">Ancestrals</a></li>
+            <ul class="dropdown-menu" id="categories">
+              <!-- <li><a href="/searchresults.html?results=ancestral">Ancestrals</a></li>
               <li><a href="/searchresults.html?results=champagne%20and%20cocktails">Champagne and Cocktails</a></li>
               <li><a href="/searchresults.html?results=duos%20and%20trios">Duos and Trios</a></li>
               <li><a href="/searchresults.html?results=flips%20and%20nogs">Flips and Nogs</a></li>
@@ -41,7 +41,7 @@
               <li><a href="/searchresults.html?results=punches">Punches</a></li>
               <li><a href="/searchresults.html?results=sours">Sours</a></li>
               <li><a href="/searchresults.html?results=spirit-foward">Spirit-Forward</a></li>
-              <li><a href="/searchresults.html?results=tropical">Tropical</a></li>
+              <li><a href="/searchresults.html?results=tropical">Tropical</a></li> -->
             </ul>
           </div>
 
@@ -95,18 +95,44 @@
             window.location.href = "signin.html";
         }
 
+        function getRelativeHref(href) {
+          var currentLocation = window.location.href;
+          var prefixArray = currentLocation.split('/');
+          var prefixArray = prefixArray.slice(0, prefixArray.length - 1);
+          return prefixArray.join('/') + href;
+
+        }
         $(document).ready(function()
         {
           authenticate();
           $("#userName").text("Welcome, " + sessionStorage.getItem('userName'));
           populateDrinks();
+          linkCategories();
 
           $('#results').keyup(function() {
             var href = $('#href');
-            var searchHref = $('<a>', {href: "/searchresults.html?results="+$(this).val()});
+            var searchHref = $('<a>', {href: getRelativeHref("/searchresults.html?results="+$(this).val())});
             href.attr('href', searchHref.attr('href'));
           });
         });
+
+        function linkCategories() {
+          var categories = ["ancestral", "champagne%20and%20cocktails", "duos%20and%20trios", "flips%20and%20nogs",
+            "highballs%20and%20collinses%20and%20fizzes", "hot%20drinks", "juleps%20and%20smashes", "old%20birds",
+            "pousse%20family", "punches", "sours", "spirit-foward", "tropical"];
+          var categoryNames = ["Ancestrals", "Champagne and Cocktails", "Duos and Trios", "Flips and Nogs",
+            "Highballs and Collinses and Fizzes", "Hot Drinks", "Juleps and Smashes", "Old Birds",
+            "Pousse Family", "Punches", "Sours", "Spirit-Foward", "Tropical"];
+          var menu = $('#categories');
+          for (var i=0; i<categories.length; i++) {
+            var category = categories[i];
+            var li = $('<li>');
+            console.log(getRelativeHref("/searchresults.html?results="+category));
+            var href = $('<a>', {href: getRelativeHref("/searchresults.html?results="+category)}).text(categoryNames[i]);
+            li.append(href);
+            menu.append(li);
+          }
+        }
 
         function populateDrinks() {
           var row = $("#drinkRow");
@@ -117,15 +143,15 @@
             var img = $('<img>', {src: drink.url, style: "width: 300px; height:200px"});
             var caption = $('<div>', {class: "caption", style: "padding-top: 0px"});
             var title = $('<h3>', {style: "font-family: georgia; color: black; text-align: center; padding-top: -10px;"}).text(drink.name);
-            var titleHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
+            var titleHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             titleHref.append(title);
-            var imageHref = $('<a>', {href: "/drinkcard.html?drink="+drink.href});
+            var imageHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             imageHref.append(img);
             caption.append(titleHref);
             var num = Math.min(6, drink.tags.length)
             for (var j=0; j<num; j++) {
               var tag = drink.tags[j];
-              var drinkHref = $('<a>', {href: "/searchresults.html?results="+tag});
+              var drinkHref = $('<a>', {href: getRelativeHref("/searchresults.html?results="+tag)});
               var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black"}).text(tag);
               drinkHref.append(button);
               caption.append(drinkHref);
