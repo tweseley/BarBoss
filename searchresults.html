@@ -101,6 +101,16 @@
           if ($.inArray(tags[i], searchList) > -1) {
             numMatches++;
           }
+          if (numMatches > 0) {
+            if (tags[i].split(" ").length > 1) {
+              var split = tags[i].split(" ");
+              for (var j=0; j<split.length; j++) {
+                if ($.inArray(split[j], searchList) > -1){
+                  numMatches++;
+                }
+              }
+            }
+          }
         }
         return numMatches;
       };
@@ -163,8 +173,6 @@
         var searchList = search.split(" ");
         var andList = search.split("and");
         var orList = search.split("or");
-        console.log(andList);
-        console.log(orList);
         for (var i=0; i<searchList.length; i++) {
           var word = searchList[i];
           if ($.inArray(word, tagsList) > -1){
