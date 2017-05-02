@@ -136,6 +136,15 @@ var drinksList = [mojito, margarita, caipirinha, longIslandIcedTea, pinaColada,
   maiTai, irishCoffee, sidecar, bloodyMary, dryMartini, whiskeySour, daiquiri,
   manhattan, oldFashioned, moscowMule, whiteRussian, fortWashingtonFlip, tequilaSunrise];
 
+var tagsList = ["rum", "lime", "mint", "sugar", "refreshing", "tequila", "triple sec", "salt", "tropical", "cachaca",
+  "ancestrals", "gin", "simple syrup", "lemon", "cola", "pineapple", "coconut milk", "coconut", "ginger beer",
+  "highballs, collinses, and fizzes", "campari", "vermouth", "spirit-forward", "club soda", "grenadine", "orange juice",
+  "fruit", "punches", "sparkling wine", "champagne and cocktails", "bourbon", "sours", "juleps and smashes", "citus",
+  "vodka", "cointreau", "cranberry juice", "almond syrup", "orange curaçao", "irish whiskey", "brown sugar syrup",
+  "coffee", "whipped cream", "hot drinks", "cognac", "tomato juice", "tabasco sauce", "horseradish", "celery salt",
+  "pepper", "paprika", "worcestershire sauce", "old birds", "bitters", "cherry", "rye", "whiskey", "orange", "kahlua",
+  "heavy cream", "duos and trios", "egg", "applejack", "flips and nogs", "pousse family"];
+
 
   // Martinez
   // Brooklyn
