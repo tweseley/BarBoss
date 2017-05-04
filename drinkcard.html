@@ -35,7 +35,7 @@
         <div class="caption" style = "margin-bottom: 80px">
 
             <div class="form-group" style="float: left">
-              <label for="comment">Comments:</label>
+              <label for="comment">Ordering Instructions:</label>
               <textarea class="form-control" style = "width: 250px" rows="5" id="comment"></textarea>
             </div>
             <div class="popup" onclick="popUp()" style = "margin-top: 20px; width:100%; margin-left: 80px;">
@@ -83,6 +83,7 @@
       }
 
       $(document).ready(function() {
+        $("#userName").text("Welcome, " + sessionStorage.getItem('userName'));
         $.urlParam = function (name) {
           var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
           return results[1] || 0;
@@ -102,6 +103,8 @@
 
       // When the user clicks on <div>, open the popup
       function popUp() {
+        var comment = $('#comment');
+        comment.val('');
         var popup = document.getElementById("myPopup");
         popup.classList.toggle("show");
         setTimeout(function(){
