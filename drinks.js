@@ -85,7 +85,7 @@ var plantersPunch = {href: "plantersPunch", "name": "Planters Punch", "tags": ["
   "directions": "Pour the ingredients into a mixing glass filled with ice cubes. Shake well. Strain into a highball glass filled with ice cubes. Top with club soda if you want. Garnish with seasonal fruits.",
   "url": "https://fthmb.tqn.com/lwS-G0Tlx8lXPFaaoi1zgQix0fI=/960x0/filters:no_upscale()/about/Planters-punch-GettyImages-569035115-589e1ae23df78c4758e4f4c9.jpg"};
 
-var tomCollins = {href: "tomCollins", "name": "Tom Collins", "tags": ["lemon", "simple syrup", "club soda", "highballs, collinses, and fizzes"],
+var tomCollins = {href: "tomCollins", "name": "Tom Collins", "tags": ["gin", "lemon", "simple syrup", "club soda", "highballs, collinses, and fizzes"],
   "ingredients": [".75 oz Fresh lemon juice", ".75 oz Simple syrup", "1.5 oz Gin", "splash Club soda"],
   "directions": "Add the lemon juice, simple syrup and gin to a shaker and fill with ice. Shake well and strain into a highball or Collins glass filled with fresh ice. Top with club soda and garnish with a lemon wheel and a cherry.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2010/12/tom-collins.jpg"};
@@ -144,6 +144,10 @@ var tagsList = ["rum", "lime", "mint", "sugar", "refreshing", "tequila", "triple
   "coffee", "whipped cream", "hot drinks", "cognac", "tomato juice", "tabasco sauce", "horseradish", "celery salt",
   "pepper", "paprika", "worcestershire sauce", "old birds", "bitters", "cherry", "rye", "whiskey", "orange", "kahlua",
   "heavy cream", "duos and trios", "egg", "applejack", "flips and nogs", "pousse family"];
+
+var alcoholList = ["rum", "tequila", "gin", "whiskey", "vodka", "champagne", "beer", "wine", "white wine", "red wine",
+  "cachaca", "kahlua", "cognac", "rye", "cointreau", "sparkling wine", "bourbon", "vermouth", "triple sec", "irish whiskey",
+  "orange curaçao", "applejack"]
 
 
   // Martinez
