@@ -40,8 +40,9 @@
           </div>
           <div id="custom-search-input" style = "margin-top: 10%; margin-bottom: 10%">
               <div class="input-group col-md-12" id="search">
-                  <input type="text" class="form-control input-lg" placeholder="Search tags or a drink..." id="results" onkeydown = "if (event.keyCode == 13)
+                  <input type="text" class="form-control input-lg" list="dropdown" placeholder="Search tags or a drink..." id="results" onkeydown="if (event.keyCode == 13)
                         document.getElementById('searchButton').click()"/>
+                  <datalist id="dropdown"></datalist>
                   <span class="input-group-btn">
                     <a id="href">
                       <button class="btn btn-info btn-lg" id="searchButton" type="button" disabled>
@@ -81,6 +82,15 @@
             window.location.href = "signin.html";
         }
 
+        function populateDropdown() {
+          var drop = $('#dropdown');
+          for (var i=0; i<tagsList.length; i++){
+            var tag = tagsList[i];
+            var option = $('<option>', {value: tag});
+            drop.append(option);
+          }
+        }
+
         function getRelativeHref(href) {
           var currentLocation = window.location.href;
           var prefixArray = currentLocation.split('/');
@@ -113,8 +123,9 @@
           $("#userName").text("Welcome, " + sessionStorage.getItem('userName'));
           populateDrinks();
           linkCategories();
+          populateDropdown();
 
-          $('#results').keyup(function() {
+          $('#results').on("keyup change paste click", function() {
             var href = $('#href');
             var searchButton = $('#searchButton');
             var searchParams = $(this).val();
