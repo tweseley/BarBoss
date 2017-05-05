@@ -25,8 +25,8 @@
     	<div class="row">
         <div class="col-xs-6 col-sm-4 col-lg-3">
 
-          <div class="dropdown" style = "margin-left: 50%; margin-top: 75%;" >
-            <button class="btn btn-primary dropdown-toggle" style = "background-color: forestgreen" type="button" data-toggle="dropdown">Show Categories
+          <div class="dropdown" style = "margin-left: 40%; margin-top: 47%;" >
+            <button class="btn btn-primary dropdown-toggle" style = "background-color: forestgreen; font-family: georgia" type="button" data-toggle="dropdown">Show Categories
             <span class="caret"></span></button>
             <ul class="dropdown-menu" id="categories"></ul>
           </div>
@@ -36,9 +36,9 @@
     		</div>
         <div class="col-xs-12 col-sm-8 col-lg-6">
           <div>
-            <h1 style = "text-align: center; font-size: 100px; font-family: cursive ">Bar Boss</h1>
+            <h1 style = "text-align: center; font-size: 60px; font-family: cursive ">Bar Boss</h1>
           </div>
-          <div id="custom-search-input" style = "margin-top: 10%; margin-bottom: 10%">
+          <div id="custom-search-input" style = "margin-top: 5%; margin-bottom: 5%">
               <div class="input-group col-md-12" id="search">
                   <input type="text" class="form-control input-lg" list="dropdown" placeholder="Search tags or a drink..." id="results" onkeydown="if (event.keyCode == 13)
                         document.getElementById('searchButton').click()"/>
@@ -56,7 +56,7 @@
 
         <div style = "float: right">
           <label id="userName" style = "font-family: georgia; font-weight: 100;"></label>
-          <a class="btn btn-primary" href="#" onclick="logout()" style = "margin-left: 20px;">Log Out</a>
+          <a class="btn btn-primary" href="#" onclick="logout()" style = "margin-left: 20px; font-family: Georgia">Log Out</a>
     		</div>
 
     	</div>
@@ -140,12 +140,8 @@
         });
 
         function linkCategories() {
-          var categories = ["ancestral", "champagne%20and%20cocktails", "duos%20and%20trios", "flips%20and%20nogs",
-            "highballs%20and%20collinses%20and%20fizzes", "hot%20drinks", "juleps%20and%20smashes", "old%20birds",
-            "pousse%20family", "punches", "sours", "spirit-foward", "tropical"];
-          var categoryNames = ["Ancestrals", "Champagne and Cocktails", "Duos and Trios", "Flips and Nogs",
-            "Highballs and Collinses and Fizzes", "Hot Drinks", "Juleps and Smashes", "Old Birds",
-            "Pousse Family", "Punches", "Sours", "Spirit-Foward", "Tropical"];
+          var categories = ["Cobbler", "Collins", "Fizz", "Highball", "Punch", "Smash", "Sour"];
+          var categoryNames = ["Cobbler", "Collins", "Fizz", "Highball", "Punch", "Smash", "Sour"];
           var menu = $('#categories');
           for (var i=0; i<categories.length; i++) {
             var category = categories[i];
@@ -161,7 +157,7 @@
           for (var i=0; i<drinksList.length; i++) {
             var drink = drinksList[i];
             var container = $('<div>', {"class":"col-xs-6 col-sm-4 col-lg-3"});
-            var thumbnail = $('<div>', {class: "thumbnail"});
+            var thumbnail = $('<div>', {class: "thumbnail", style: "height: 400px;"});
             var img = $('<img>', {src: drink.url, style: "width: 300px; height:200px"});
             var caption = $('<div>', {class: "caption", style: "padding-top: 0px"});
             var title = $('<h3>', {style: "font-family: georgia; color: black; text-align: center; padding-top: -10px;"}).text(drink.name);
@@ -175,9 +171,9 @@
               var tag = drink.tags[j];
               var drinkHref = $('<a>', {href: getRelativeHref("/searchresults.html?results="+tag)});
               if ($.inArray(tag, alcoholList) > -1) {
-                var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black; background-color: orchid"}).text(tag);
+                var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black; background-color: orchid; font-family: georgia" }).text(tag);
               } else {
-                var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black"}).text(tag);
+                var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black; font-family: georgia"}).text(tag);
               }
               drinkHref.append(button);
               caption.append(drinkHref);

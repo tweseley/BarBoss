@@ -19,13 +19,13 @@
 
   <body>
     <div>
-      <button type="button" class="btn btn-default btn-sm" style="margin-left: 20px;" onclick="home()" >
+      <button type="button" class="btn btn-default btn-sm" style="margin-left: 20px; font-family: Georgia" onclick="home()" >
         <span class="glyphicon glyphicon-home"></span> Home
       </button>
 
       <div style = "float: right">
         <label id="userName" style = "font-family: georgia; font-weight: 100;"></label>
-        <a class="btn btn-primary" href="#" onclick="logout()" style="margin-left: 20px; margin-right: 20px;">Log Out</a>
+        <a class="btn btn-primary" href="#" onclick="logout()" style="margin-left: 20px; margin-right: 55px; font-family: Georgia">Log Out</a>
       </div>
     </div>
 
@@ -35,11 +35,11 @@
         <div class="caption" style = "margin-bottom: 80px">
 
             <div class="form-group" style="float: left">
-              <label for="comment">Ordering Instructions:</label>
+              <label for="comment" style = "font-family: georgia">Ordering Instructions:</label>
               <textarea class="form-control" style = "width: 250px" rows="5" id="comment"></textarea>
             </div>
             <div class="popup" onclick="popUp()" style = "margin-top: 20px; width:100%; margin-left: 80px;">
-              <button type="button" class="btn btn-success">Send to Bar</button>
+              <button type="button" class="btn btn-success" style = "font-family: georgia">Send to Bar</button>
               <span style = "margin-left: -240px" class="popuptext" id="myPopup">Your drink has been sent to the bar!</span>
             </div>
       </div>
