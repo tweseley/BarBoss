@@ -20,7 +20,7 @@
   <body>
 
     <div>
-      <button type="button" class="btn btn-default btn-sm" style = "margin-left: 20px; font-family: georgia" onclick="home()">
+      <button type="button" class="btn btn-default btn-secondary" style = "position: fixed; margin-left: 20px; font-family: georgia" onclick="home()">
         <span class="glyphicon glyphicon-home"></span> Home
       </button>
 
@@ -160,7 +160,7 @@
           }
           var div = $('<div>');
           var drinkHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
-          var button = $('<button>', {style: "margin-top: 7px", type: "button", class: "btn btn-warning"}).text("See Full Recipe");
+          // var button = $('<button>', {style: "margin-top: 7px", type: "button", class: "btn btn-warning"}).text("See Full Recipe");
           drinkHref.append(button);
           div.append(drinkHref);
           var popup = $('<div>', {class: "popup", onclick: "popUp()"});
