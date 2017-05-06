@@ -37,8 +37,8 @@
       <a style = "margin-left: 44%; margin-top: 40px; color: black; font-family: Georgia" href=help.html>Help! I forgot my password</a>
     </div>
     <div>
-      <a class="btn btn-primary" href="#" onclick="register()"  style = "margin-top: 20px; margin-left: 43%; font-family: Georgia">Register</a>
-      <a class="btn btn-primary" id = "loginButton" href="#" onclick="login(usr, pwd)" style = "margin-top: 20px; margin-left: 20px; font-family: Georgia">Log In</a>
+      <a class="btn btn-primary" id = "loginButton" href="#" onclick="login(usr, pwd)" style = "margin-top: 20px; margin-left: 43%; font-family: Georgia">Log In</a>
+      <a class="btn btn-primary" href="#" onclick="register()"  style = "margin-top: 20px; margin-left: 20px; font-family: Georgia">Register</a>
     </div>
 
     <script language="javascript">
@@ -59,7 +59,29 @@
         }
         else {
           //show validation message
-          alert("Error Password or Username");
+          // show validation message
+          if (usr.value != sessionStorage.getItem('userName') && usr.value != '') {
+            alert("Incorrect username");
+          }
+          if (pwd.value != sessionStorage.getItem('password') && pwd.value != '') {
+            alert("Incorrect password");
+          }
+
+          if ($('#usr').val() == '') {
+            $('#usr').css('border-color', 'red');
+          }
+          else {
+            $('#usr').css('border-color', '');
+          }
+
+          if ($('#pwd').val() == '') {
+            $('#pwd').css('border-color', 'red');
+          }
+          else {
+            $('#pwd').css('border-color', '');
+          }
+
+          // alert("Error Password or Username");
         }
       }
 
