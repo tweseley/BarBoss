@@ -40,6 +40,7 @@
           </div>
           <div id="custom-search-input" style = "margin-top: 5%; margin-bottom: 5%">
               <div class="input-group col-md-12" id="search">
+
                   <input type="text" class="form-control input-lg" list="dropdown" placeholder="Search tags or a drink..." id="results" onkeydown="if (event.keyCode == 13)
                         document.getElementById('searchButton').click()"/>
                   <datalist id="dropdown"></datalist>
@@ -84,7 +85,8 @@
 
         function populateDropdown() {
           var drop = $('#dropdown');
-          for (var i=0; i<tagsList.length; i++){
+          var max = Math.min(tagsList.length, 10);
+          for (var i=0; i<max; i++){
             var tag = tagsList[i];
             var option = $('<option>', {value: tag});
             drop.append(option);
