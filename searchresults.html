@@ -40,8 +40,9 @@
             </div>
             <div id="custom-search-input" style = "margin-top: 5%; margin-bottom: 5%">
                 <div class="input-group col-md-12" id="search">
-                    <input type="text" class="form-control input-lg" placeholder="Search tags or a drink..." id="input" onkeydown = "if (event.keyCode == 13)
+                    <input type="text" class="form-control input-lg" list="dropdown" placeholder="Search tags or a drink..." id="input" onkeydown = "if (event.keyCode == 13)
                         document.getElementById('searchButton').click()"/>
+                    <datalist id="dropdown"></datalist>
                     <span class="input-group-btn">
                       <a id="href">
                         <button id = "searchButton" class="btn btn-info btn-lg" type="button" disabled>
@@ -82,6 +83,16 @@
         var prefixArray = currentLocation.split('/');
         var prefixArray = prefixArray.slice(0, prefixArray.length - 1);
         return prefixArray.join('/') + href;
+      }
+
+      function populateDropdown() {
+        var drop = $('#dropdown');
+        var max = Math.min(tagsList.length, 10);
+        for (var i=0; i<max; i++){
+          var tag = tagsList[i];
+          var option = $('<option>', {value: tag});
+          drop.append(option);
+        }
       }
 
       function numMatches(drink, search) {
@@ -208,7 +219,7 @@
         var input = $('#input');
         input.val(decodeURIComponent(results));
         populateDrinks();
-
+        populateDropdown();
       });
 
     </script>
