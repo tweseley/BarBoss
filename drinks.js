@@ -14,12 +14,12 @@ var margarita = {href: "margarita", "name": "Margarita", "tags": ["tequila", "tr
   "directions": "Shake with Ice. Garnish with lime.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2013/04/Partida-Margarita.jpg"};
 
-var moscowMule = {href: "moscowMule", "name": "Moscow Mule", "tags": ["vodka", "ginger beer", "lime", "sour", "collins", "sour"],
+var moscowMule = {href: "moscowMule", "name": "Moscow Mule", "tags": ["vodka", "ginger beer", "lime", "sour", "collins", "sour", "herb", "spicy"],
   "ingredients": ["1.5 oz vodka", ".5 oz lime juice", ".5 cup ginger beer", "1 lime wedge", "ice cubes"],
   "directions": "Stir. Garnish with lime.",
   "url": "http://www.thedrinkkings.com/wp-content/uploads/2015/12/Moscow-Mule-6-630-630x660.jpg"};
 
-var oldFashioned = {href: "oldFashioned", "name": "Old Fashioned", "tags": ["bourbon", "sugar", "bitters", "orange", "club soda", "cherry", "bitter"],
+var oldFashioned = {href: "oldFashioned", "name": "Old Fashioned", "tags": ["bourbon", "sugar", "bitters", "orange", "club soda", "cherry", "bitter", "herb"],
   "ingredients": ["4 dashes Angostura bitters", "1 tsp sugar", "1 orange wheel", "1 maraschino cherry",
   "1 splash club soda", "2 oz bourbon"],
   "directions": "Muddle the bitters, sugar, orange wheel, cherry, and soda. Add the bourbon and fill with ice. Garnish with orange and cherry.",
@@ -55,7 +55,7 @@ var sidecar = {href: "sidecar", "name": "Sidecar", "tags": ["cognac", "triple se
   "directions": "Coat rim of glass with sugar. Shake with ice. Garnish with a piece of orange peel.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2011/09/sidecar2.jpg"};
 
-var cosmopolitan = {href: "cosmopolitan", "name": "Cosmopolitan", "tags": ["vodka", "cointreau", "citus", "lime", "cranberry juice", "sweet"],
+var cosmopolitan = {href: "cosmopolitan", "name": "Cosmopolitan", "tags": ["vodka", "cointreau", "citus", "lime", "cranberry juice", "sweet", "berry"],
   "ingredients": ["1.5 oz Citrus vodka", "1 oz Cointreau", ".5 oz Fresh lime juice", "1 dash Cranberry juice"],
   "directions": "Shake with ice and strain into a chilled cocktail glass. Garnish with a lime wedge.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2011/01/cosmopolitain2.jpg"};
@@ -80,17 +80,17 @@ var mimosa = {href: "mimosa", "name": "Mimosa", "tags": ["sparkling wine", "oran
   "directions": "Add the orange juice to a Champagne flute. Fill with sparkling wine.",
   "url": "http://www.thedrinkkings.com/wp-content/uploads/2014/06/Mimosa-10.jpg"};
 
-var plantersPunch = {href: "plantersPunch", "name": "Planters Punch", "tags": ["rum", "grenadine", "orange juice", "fruit", "cobbler", "sweet"],
+var plantersPunch = {href: "plantersPunch", "name": "Planters Punch", "tags": ["rum", "grenadine", "orange juice", "fruity", "cobbler", "sweet"],
   "ingredients": ["1 1/2 ounces dark rum", "1/4 ounce grenadine", "2 ounces orange juice", "Seasonal fruit for garnish"],
   "directions": "Shake with ice. Strain into a glass. Top with club soda. Garnish with seasonal fruits.",
   "url": "https://fthmb.tqn.com/lwS-G0Tlx8lXPFaaoi1zgQix0fI=/960x0/filters:no_upscale()/about/Planters-punch-GettyImages-569035115-589e1ae23df78c4758e4f4c9.jpg"};
 
-var tomCollins = {href: "tomCollins", "name": "Tom Collins", "tags": ["gin", "lemon", "simple syrup", "club soda", "sour"],
+var tomCollins = {href: "tomCollins", "name": "Tom Collins", "tags": ["gin", "lemon", "simple syrup", "club soda", "sour", "spicy"],
   "ingredients": [".75 oz Fresh lemon juice", ".75 oz Simple syrup", "1.5 oz Gin", "splash Club soda"],
   "directions": "Shake with ice and strain into a glass. Top with club soda and garnish with a lemon wheel and a cherry.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2010/12/tom-collins.jpg"};
 
-var negroni = {href: "negroni", "name": "Negroni", "tags": ["vermouth", "gin", "campari", "highball", "bitter"],
+var negroni = {href: "negroni", "name": "Negroni", "tags": ["vermouth", "gin", "campari", "highball", "bitter", "herb"],
   "ingredients": ["1 oz Campari", "1 oz Gin", "1 oz Sweet vermouth"],
   "directions": "Stir with ice. Garnish with an orange half-wheel.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2013/04/18110158/negroni-720x720-recipe.jpg"};
@@ -110,7 +110,7 @@ var longIslandIcedTea = {href: "longIslandIcedTea", "name": "Long Island Iced Te
   "directions": "Stir with ice. Top with a splash of cola. Garnish with a lemon wedge.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2017/03/07152907/long-island-iced-tea-720x720-recipe.jpg"};
 
-var caipirinha = {href: "caipirinha", "name": "Caipirinha", "tags": ["cachaca", "lime", "sugar", "sweet"],
+var caipirinha = {href: "caipirinha", "name": "Caipirinha", "tags": ["cachaca", "lime", "sugar", "sweet", "spicy"],
   "ingredients": ["half Lime, cut into wedges", "2 tsp Sugar", "2 oz Cachaça"],
   "directions": "Muddle the sugar and lime. Stir with ice. Garnish with a lime wheel.",
   "url": "http://www.tastecocktails.com/wp-content/uploads/2016/07/caiprinha-feature.jpg"};
@@ -138,11 +138,11 @@ var drinksList = [mojito, margarita, caipirinha, longIslandIcedTea, pinaColada,
 
 var tagsList = ["rum", "lime", "mint", "sugar", "refreshing", "tequila", "triple sec", "salt", "cachaca", "gin",
   "simple syrup", "lemon", "cola", "pineapple", "coconut milk", "coconut", "ginger beer", "campari", "vermouth",
-  "club soda", "grenadine", "orange juice", "fruit", "sparkling wine", "bourbon", "sours", "citus", "vodka",
+  "club soda", "grenadine", "orange juice", "fruity", "sparkling wine", "bourbon", "sours", "citus", "vodka",
   "cointreau", "cranberry juice", "almond syrup", "orange curaçao", "irish whiskey", "brown sugar syrup",
   "coffee", "whipped cream", "cognac", "tomato juice", "tabasco sauce", "horseradish", "celery salt",
   "pepper", "paprika", "worcestershire sauce", "bitters", "cherry", "rye", "whiskey", "orange", "kahlua",
-  "heavy cream", "egg", "applejack", "sweet", "sour", "bitter"];
+  "heavy cream", "egg", "applejack", "sweet", "sour", "bitter", "berry", "herb", "spicy"];
 
 var alcoholList = ["rum", "tequila", "gin", "whiskey", "vodka", "champagne", "beer", "wine", "white wine", "red wine",
   "cachaca", "kahlua", "cognac", "rye", "cointreau", "sparkling wine", "bourbon", "vermouth", "triple sec", "irish whiskey",
