@@ -39,24 +39,7 @@
           <div>
             <h1 style = "text-align: center; font-size: 60px; font-family: cursive ">Bar Boss</h1>
           </div>
-<!--
-          <div id="custom-search-input" style = "margin-top: 5%; margin-bottom: 5%">
-              <div class="input-group col-md-12" id="search">
 
-                  <input type="text" class="form-control input-lg" list="dropdown" placeholder="Search tags or a drink..." id="results" onkeydown="if (event.keyCode == 13)
-                        document.getElementById('searchButton').click()"/>
-                  <datalist id="dropdown"></datalist>
-                  <span class="input-group-btn">
-                    <a id="href">
-                      <button class="btn btn-info btn-lg" id="searchButton" type="button" disabled>
-                          <i class="glyphicon glyphicon-search"></i>
-                      </button>
-                    </a>
-                  </span>
-
-              </div>
-          </div>
--->
           <div id="custom-search-input" style = "margin-top: 5%; margin-bottom: 5%">
             <div class="input-group col-md-12" id="search">
 
@@ -139,7 +122,16 @@
 
 
         </div>
+        
+        <div style = "float: right">
+          <label id="userName" style = "font-family: georgia; font-weight: 100;"></label>
+          <a class="btn btn-primary" href="#" onclick="logout()" style = "margin-left: 20px; font-family: Georgia">Log Out</a>
+        </div>
+
     </div>
+
+
+
 
     <br>
 
