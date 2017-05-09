@@ -130,7 +130,6 @@ var tequilaSunrise = {href: "tequilaSunrise", "name": "Tequila Sunrise", "tags":
   "directions": "Shake with ice very vigorously. Strain into glass. Garnish with nutmeg.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2017/03/07152925/tequila-sunrise-720x720-recipe.jpg"};
 
-
 var drinksList = [mojito, margarita, caipirinha, longIslandIcedTea, pinaColada,
   darkAndStormy, negroni, tomCollins, plantersPunch, mimosa, mintJulep, cosmopolitan,
   maiTai, irishCoffee, sidecar, bloodyMary, dryMartini, whiskeySour, daiquiri,

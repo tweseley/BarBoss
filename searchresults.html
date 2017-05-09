@@ -144,7 +144,35 @@
         return orderedDrinks.reverse();
       }
 
+      function drinkAdded() {
+        if (sessionStorage.getItem('drinkName') != null && sessionStorage.getItem('tags') != null && sessionStorage.getItem('ingredients') != null &&
+                sessionStorage.getItem('directions') != null && sessionStorage.getItem('imageURL') != null) {
+          var addedDrinkName = sessionStorage.getItem('drinkName');
+          // Should be modified I'm guessing?
+          var addedHref = addedDrinkName;
+          var addedTags = sessionStorage.getItem('tags').split(',');
+          var addedIngredients = sessionStorage.getItem('ingredients').split(',');
+          var addedDirections = sessionStorage.getItem('directions');
+          var addedImage = sessionStorage.getItem('imageURL');
+
+          if (addedDrinkName != "" && addedTags != "" && addedIngredients != "" &&
+                  addedDirections != "" && addedImage != "" && addedHref != "") {
+            var drink = {
+              href: addedHref,
+              "name": addedDrinkName,
+              "tags": addedTags,
+              "ingredients": addedIngredients,
+              "directions": addedDirections,
+              "url": addedImage
+            };
+            drinksList.unshift(drink);
+          }
+        }
+      }
+
       function populateDrinks() {
+        drinkAdded();
+
         var body = $('#drinkBody');
         var matchedDrinks = getOrderedDrinkList();
         for (var i=0; i<matchedDrinks.length; i++) {
@@ -162,9 +190,9 @@
             var tag = drink.tags[j];
             var drinkHref = $('<a>', {href: getRelativeHref("/searchresults.html?results="+tag)});
             if ($.inArray(tag, alcoholList) > -1) {
-              var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black; background-color: orchid"}).text(tag);
+              var button = $('<button>', {title:"Purple tags are alcoholic", class: "btn btn-secondary", type: "button", style: "color: black; background-color: orchid"}).text(tag);
             } else {
-              var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black"}).text(tag);
+              var button = $('<button>', {title:"Click a tag to search for it", class: "btn btn-secondary", type: "button", style: "color: black"}).text(tag);
             }
             drinkHref.append(button);
             caption.append(drinkHref);

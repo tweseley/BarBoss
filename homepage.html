@@ -136,7 +136,7 @@
     <br>
 
     <div class="container" id="drinksContainer">
-    	<div class="flex-row row" id="drinkRow" title="Click a tag to search for it">
+    	<div class="flex-row row" id="drinkRow">
     	</div>
     </div>
 
@@ -226,8 +226,37 @@
           }
         }
 
+        function drinkAdded() {
+            if (sessionStorage.getItem('drinkName') != null && sessionStorage.getItem('tags') != null && sessionStorage.getItem('ingredients') != null &&
+                    sessionStorage.getItem('directions') != null && sessionStorage.getItem('imageURL') != null) {
+                var addedDrinkName = sessionStorage.getItem('drinkName');
+                // Should be modified I'm guessing?
+                var addedHref = addedDrinkName;
+                var addedTags = sessionStorage.getItem('tags').split(',');
+                var addedIngredients = sessionStorage.getItem('ingredients').split(',');
+                var addedDirections = sessionStorage.getItem('directions');
+                var addedImage = sessionStorage.getItem('imageURL');
+
+                if (addedDrinkName != "" && addedTags != "" && addedIngredients != "" &&
+                        addedDirections != "" && addedImage != "" && addedHref != "") {
+                    var drink = {
+                        href: addedHref,
+                        "name": addedDrinkName,
+                        "tags": addedTags,
+                        "ingredients": addedIngredients,
+                        "directions": addedDirections,
+                        "url": addedImage
+                    };
+                    drinksList.unshift(drink);
+                }
+            }
+        }
+
         function populateDrinks() {
           var row = $("#drinkRow");
+
+          drinkAdded();
+
           for (var i=0; i<drinksList.length; i++) {
             var drink = drinksList[i];
             var container = $('<div>', {"class":"col-xs-6 col-sm-4 col-lg-3"});
@@ -240,14 +269,14 @@
             var imageHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             imageHref.append(img);
             caption.append(titleHref);
-            var num = Math.min(6, drink.tags.length)
+            var num = Math.min(6, drink.tags.length);
             for (var j=0; j<num; j++) {
               var tag = drink.tags[j];
               var drinkHref = $('<a>', {href: getRelativeHref("/searchresults.html?results="+tag)});
               if ($.inArray(tag, alcoholList) > -1) {
-                var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black; background-color: orchid; font-family: georgia" }).text(tag);
+                var button = $('<button>', {title:"Purple tags are alcoholic", class: "btn btn-secondary", type: "button", style: "color: black; background-color: orchid; font-family: georgia" }).text(tag);
               } else {
-                var button = $('<button>', {class: "btn btn-secondary", type: "button", style: "color: black; font-family: georgia"}).text(tag);
+                var button = $('<button>', {title:"Click a tag to search for it", class: "btn btn-secondary", type: "button", style: "color: black; font-family: georgia"}).text(tag);
               }
               drinkHref.append(button);
               caption.append(drinkHref);
