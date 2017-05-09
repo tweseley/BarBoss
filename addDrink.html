@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>addDrink</title>
+
+    <!-- Bootstrap -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="homepage.css">
+    <script src="drinks.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  </head>
+
+  <body style = "background-color: gba(0, 0, 0, 0.03)">
+
+  <button type="button" class="btn btn-default btn-secondary" style="position: fixed; margin-left: 20px; font-family: Georgia" onclick="home()" >
+    <span class="glyphicon glyphicon-home"></span> Home
+  </button>
+
+    <h1 style = "font-size: 70px; text-align: center; margin-top: 40px; color: black; font-family: Georgia">Add Drink</h1>
+
+
+    <div style = "width: 30%; margin-left: 35%; margin-top: 3%">
+      <div class="form-group">
+        <input type="text" class="form-control" id="drinkName" placeholder="Drink name...">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="tags" maxlength="15" placeholder="Comma-separated tags...">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="ingredients" placeholder="Comma-separated ingredients...">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="directions" placeholder="Directions...">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="imageURL" placeholder="Image URL..." onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('addDrinkButton').click()">
+      </div>
+    </div>
+
+    <a class="btn btn-primary" href="#" id = "addDrinkButton" style = "margin-top: 20px; margin-left: 600px; font-family: Georgia" onclick="addDrink()">Add Drink</a>
+
+    <script language="javascript">
+
+      function addDrink(form) {
+          var drinkHREF = drinkName.value.replace(/\s+/g, '');
+          var drinkToAdd = drinkName.value.replace(/\s+/g, '');
+          console.log(drinkName.value);
+          var drinkToAdd = {
+              href: drinkHREF,
+              "name": drinkName.value,
+              "tags": [tags.value],
+              "ingredients": [ingredients.value],
+              "directions": [directions.value],
+              "url": [imageURL.value]
+          };
+          console.log(drinksList);
+          console.log(drinkToAdd);
+          drinksList.push(drinkToAdd);
+          console.log(drinksList);
+          //window.location.href = "homepage.html";
+      }
+
+      document.documentElement.addEventListener("keyup", function(event) {
+          event.preventDefault();
+          if (event.keyCode == 13) {
+              document.getElementById("registerButton").click();
+          }
+      });
+
+      window.onload = function() {
+          var input = document.getElementById("drinkName").focus();
+      }
+
+      function home() {
+          window.location.href = "homepage.html";
+      }
+
+    </script>
+
+  </body>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
