@@ -235,12 +235,13 @@
         }
 
         function drinkAdded() {
-            if (sessionStorage.getItem('drinkName') != null) {
+            if (sessionStorage.getItem('drinkName') != null && sessionStorage.getItem('tags') != null && sessionStorage.getItem('ingredients') != null &&
+                    sessionStorage.getItem('directions') != null && sessionStorage.getItem('imageURL') != null) {
                 var addedDrinkName = sessionStorage.getItem('drinkName');
                 // Should be modified I'm guessing?
                 var addedHref = addedDrinkName;
-                var addedTags = sessionStorage.getItem('tags');
-                var addedIngredients = sessionStorage.getItem('ingredients');
+                var addedTags = sessionStorage.getItem('tags').split(',');
+                var addedIngredients = sessionStorage.getItem('ingredients').split(',');
                 var addedDirections = sessionStorage.getItem('directions');
                 var addedImage = sessionStorage.getItem('imageURL');
 
