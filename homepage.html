@@ -235,23 +235,27 @@
         }
 
         function drinkAdded() {
-            var addedDrinkName = sessionStorage.getItem('drinkName');
-            // Should be modified I'm guessing?
-            var addedHref = addedDrinkName;
-            var addedTags = sessionStorage.getItem('tags');
-            var addedIngredients =  sessionStorage.getItem('ingredients');
-            var addedDirections =  sessionStorage.getItem('directions');
-            var addedImage = sessionStorage.getItem('imageURL');
+            if (sessionStorage.getItem('drinkName') != null) {
+                var addedDrinkName = sessionStorage.getItem('drinkName');
+                // Should be modified I'm guessing?
+                var addedHref = addedDrinkName;
+                var addedTags = sessionStorage.getItem('tags');
+                var addedIngredients = sessionStorage.getItem('ingredients');
+                var addedDirections = sessionStorage.getItem('directions');
+                var addedImage = sessionStorage.getItem('imageURL');
 
-            if (addedDrinkName != "" && addedTags != "" && addedIngredients != "" &&
-                    addedDirections != "" && addedImage != "" && addedHref != "") {
-                var drink = {href: addedHref,
-                    "name": addedDrinkName,
-                    "tags": addedTags,
-                    "ingredients": addedIngredients,
-                    "directions": addedDirections,
-                    "url": addedImage};
-                drinksList.unshift(drink);
+                if (addedDrinkName != "" && addedTags != "" && addedIngredients != "" &&
+                        addedDirections != "" && addedImage != "" && addedHref != "") {
+                    var drink = {
+                        href: addedHref,
+                        "name": addedDrinkName,
+                        "tags": addedTags,
+                        "ingredients": addedIngredients,
+                        "directions": addedDirections,
+                        "url": addedImage
+                    };
+                    drinksList.unshift(drink);
+                }
             }
         }
 
