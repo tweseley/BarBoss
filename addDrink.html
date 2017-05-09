@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Register</title>
+
+    <!-- Bootstrap -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="homepage.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  </head>
+
+  <body style = "background-color: gba(0, 0, 0, 0.03)">
+
+
+    <h1 style = "font-size: 70px; text-align: center; margin-top: 40px; color: black; font-family: Georgia">Register</h1>
+
+
+    <div style = "width: 30%; margin-left: 35%; margin-top: 3%">
+      <div class="form-group">
+        <input type="text" class="form-control" id="email" placeholder="What's your email...">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="userName" maxlength="15" placeholder="Choose a username...">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="userPassword" placeholder="Create a password...">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password..." onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('registerButton').click()">
+      </div>
+    </div>
+
+    <div>
+      <a class="btn btn-primary" href="#" onclick= window.location.href="signin.html" style = "margin-top: 20px; margin-left: 43%; font-family: Georgia">Back</a>
+      <a class="btn btn-primary" href="#" id = "registerButton" onclick="register(email, userName, userPassword, confirmPassword)"  style = "margin-top: 20px; margin-left: 20px; font-family: Georgia">Register</a>
+    </div>
+
+    <script language="javascript">
+      function register(email, userName, password, confirmPassword) {
+        /*the following code checkes whether the entered userid and password are matching*/
+        if (email.value != "" && userName.value != "" && password.value != "" && confirmPassword.value != "") {
+          sessionStorage.setItem('email', email.value);
+          sessionStorage.setItem('userName', userName.value);
+          sessionStorage.setItem('password', password.value);
+
+          if (password.value == confirmPassword.value) {
+            //redirect to page
+            sessionStorage.setItem('loggedIn', true);
+            window.location.href = "homepage.html";
+            // window.location.href = "registrationComplete.html";
+            /*opens the target page while Id & password matches*/
+          }
+          else {
+            //show validation message
+            alert("The passwords are not the same!");
+          }
+        }
+        else {
+          //show validation message
+          if ($('#email').val() == '') {
+            $('#email').css('border-color', 'red');
+            $( "#email" ).effect( "shake" );
+          }
+          else {
+            $('#email').css('border-color', '');
+          }
+
+          if ($('#userName').val() == '') {
+            $('#userName').css('border-color', 'red');
+            $( "#userName" ).effect( "shake" );
+          }
+          else {
+            $('#userName').css('border-color', '');
+          }
+
+          if ($('#userPassword').val() == '') {
+            $('#userPassword').css('border-color', 'red');
+            $( "#userPassword" ).effect( "shake" );
+          }
+          else {
+            $('#userPassword').css('border-color', '');
+          }
+          // alert("Please fill out all fields.");
+        }
+      }
+      document.documentElement.addEventListener("keyup", function(event) {
+          event.preventDefault();
+          if (event.keyCode == 13) {
+              document.getElementById("registerButton").click();
+          }
+      });
+
+      window.onload = function() {
+          var input = document.getElementById("email").focus();
+      }
+
+    </script>
+
+  </body>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

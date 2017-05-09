@@ -22,45 +22,43 @@
 
 
     <div class="container">
-    	<div class="row">
-        <div class="col-xs-6 col-sm-4 col-lg-3">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-lg-3">
+                <div class="dropdown" style = "margin-left: 40%; margin-top: 47%;" >
+                    <button class="btn btn-primary dropdown-toggle" style = "background-color: forestgreen; font-family: georgia" type="button" data-toggle="dropdown">Show Categories
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu" id="categories"></ul>
+                </div>
+            </div>
 
-          <div class="dropdown" style = "margin-left: 40%; margin-top: 47%;" >
-            <button class="btn btn-primary dropdown-toggle" style = "background-color: forestgreen; font-family: georgia" type="button" data-toggle="dropdown">Show Categories
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu" id="categories"></ul>
-          </div>
+            <div class="col-xs-12 col-sm-8 col-lg-6">
+                <div>
+                    <h1 style = "text-align: center; font-size: 60px; font-family: cursive ">Bar Boss</h1>
+                </div>
 
-
-
-    		</div>
-        <div class="col-xs-12 col-sm-8 col-lg-6">
-          <div>
-            <h1 style = "text-align: center; font-size: 60px; font-family: cursive ">Bar Boss</h1>
-          </div>
-          <div id="custom-search-input" style = "margin-top: 5%; margin-bottom: 5%">
-              <div class="input-group col-md-12" id="search">
-
-                  <input type="text" class="form-control input-lg" list="dropdown" placeholder="Search tags or a drink..." id="results" onkeydown="if (event.keyCode == 13)
+                <div id="custom-search-input" style = "margin-top: 5%; margin-bottom: 5%">
+                    <div class="input-group col-md-12" id="search">
+                        <input type="text" class="form-control input-lg" list="dropdown" placeholder="Search tags or a drink..." id="results" onkeydown="if (event.keyCode == 13)
                         document.getElementById('searchButton').click()"/>
-                  <datalist id="dropdown"></datalist>
-                  <span class="input-group-btn">
-                    <a id="href">
-                      <button class="btn btn-info btn-lg" id="searchButton" type="button" disabled>
-                          <i class="glyphicon glyphicon-search"></i>
-                      </button>
-                    </a>
-                  </span>
-              </div>
-          </div>
+                        <datalist id="dropdown"></datalist>
+                        <span class="input-group-btn">
+                            <a id="href">
+                                <button class="btn btn-info btn-lg" id="searchButton" type="button" disabled>
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn btn-primary" style="margin-top: 120px; margin-left: 20px; font-family:Georgia"; onclick=window.location.href="addDrink.html">Add Drink</div>
+
+            <div style = "float: right">
+                <label id="userName" style = "font-family: georgia; font-weight: 100;"></label>
+                <a class="btn btn-primary" href="#" onclick="logout()" style = "margin-left: 20px; font-family: Georgia">Log Out</a>
+            </div>
         </div>
-
-        <div style = "float: right">
-          <label id="userName" style = "font-family: georgia; font-weight: 100;"></label>
-          <a class="btn btn-primary" href="#" onclick="logout()" style = "margin-left: 20px; font-family: Georgia">Log Out</a>
-    		</div>
-
-    	</div>
     </div>
 
     <br>
