@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5876621e-da98-454c-8a42-2f083e8de24c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addDrink.html" afterPath="$PROJECT_DIR$/addDrink.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/drinks.js" afterPath="$PROJECT_DIR$/drinks.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homepage.html" afterPath="$PROJECT_DIR$/homepage.html" />
     </list>
     <ignored path="BarBoss.iws" />
@@ -42,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.4326059">
-              <caret line="253" column="26" selection-start-line="253" selection-start-column="26" selection-end-line="253" selection-end-column="26" />
+              <caret line="253" column="34" selection-start-line="253" selection-start-column="34" selection-end-line="253" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -836,7 +834,7 @@
     <entry file="file://$PROJECT_DIR$/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4326059">
-          <caret line="253" column="26" selection-start-line="253" selection-start-column="26" selection-end-line="253" selection-end-column="26" />
+          <caret line="253" column="34" selection-start-line="253" selection-start-column="34" selection-end-line="253" selection-end-column="34" />
           <folding />
         </state>
       </provider>
