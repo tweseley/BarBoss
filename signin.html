@@ -60,12 +60,16 @@
         else {
           //show validation message
           // show validation message
-          if (usr.value != sessionStorage.getItem('userName') && usr.value != '') {
-            alert("The username you have entered is incorrect.");
-          }
-          if (pwd.value != sessionStorage.getItem('password') && pwd.value != '') {
-            alert("The password you have entered is incorrect.");
-          }
+            if (usr.value != sessionStorage.getItem('userName') && usr.value != '' && pwd.value == sessionStorage.getItem('password') && pwd.value != '') {
+                alert("The username that you have entered is incorrect.");
+            }
+            if (pwd.value != sessionStorage.getItem('password') && pwd.value != '' && usr.value == sessionStorage.getItem('userName') && usr.value != '') {
+                alert("The password that you have entered is incorrect.");
+            }
+            else {
+                alert("The username and/or password that you have entered is incorrect.");
+            }
+
 
           if ($('#usr').val() == '') {
             $('#usr').css('border-color', 'red');
