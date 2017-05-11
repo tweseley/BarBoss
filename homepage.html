@@ -63,13 +63,13 @@
 
         </div>
 
-        <div style = "float: right; padding-right: 20px;">
+        <div style = "float: right; padding-right: 40px;">
           <a class="btn btn-primary" onclick=window.location.href="addDrink.html"; style="margin-left: 15px; margin-top: 0px; background-color:mediumpurple; font-family: Georgia">Add Drink</a>
           <b class="btn btn-primary" href="#" onclick="logout()" style = "margin-left: 15px; font-family: Georgia">Log Out</b>
         </div>
 
         <div>
-          <label id="userName" style = "font-family: georgia; font-weight: 100; float:right; padding-right: 20px; margin-top: 10px;"></label>
+          <label id="userName" style = "font-family: georgia; font-weight: 100; float:right; padding-right: 50px; margin-top: 10px;"></label>
         </div>
 
       </div>
@@ -80,7 +80,7 @@
     <br>
 
     <div class="container" id="drinksContainer">
-    	<div class="flex-row row" id="drinkRow">
+    	<div class="flex-row row" id="drinkRow" style = "margin-right: 10px;">
     	</div>
     </div>
 
@@ -96,18 +96,6 @@
             // sessionStorage.clear();
             window.location.href = "signin.html";
         }
-
-/*
-        function populateDropdown() {
-          var drop = $('#dropdown');
-          var max = Math.min(tagsList.length, 10);
-          for (var i=0; i<max; i++){
-            var tag = tagsList[i];
-            var option = $('<option>', {value: tag});
-            drop.append(option);
-          }
-        }
-*/
 
         function getRelativeHref(href) {
           var currentLocation = window.location.href;
@@ -141,7 +129,6 @@
           $("#userName").text("Welcome, " + sessionStorage.getItem('userName'));
           populateDrinks();
           linkCategories();
-          //populateDropdown();
 
           $('#search-term-input').on("keyup change paste click", function() {
             var href = $('#href');
@@ -159,7 +146,7 @@
 
         function linkCategories() {
           var categories = ["Popular", "Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Sweet"];
-          var categoryNames = ["Popular", "Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Sweet"];
+          var categoryNames = ["Popular", "Tropical", "Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Sweet"];
           var menu = $('#categories');
           for (var i=0; i<categories.length; i++) {
             var category = categories[i];
