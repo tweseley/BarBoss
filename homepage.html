@@ -93,18 +93,6 @@
             window.location.href = "signin.html";
         }
 
-/*
-        function populateDropdown() {
-          var drop = $('#dropdown');
-          var max = Math.min(tagsList.length, 10);
-          for (var i=0; i<max; i++){
-            var tag = tagsList[i];
-            var option = $('<option>', {value: tag});
-            drop.append(option);
-          }
-        }
-*/
-
         function getRelativeHref(href) {
           var currentLocation = window.location.href;
           var prefixArray = currentLocation.split('/');
@@ -137,7 +125,6 @@
           $("#userName").text("Welcome, " + sessionStorage.getItem('userName'));
           populateDrinks();
           linkCategories();
-          //populateDropdown();
 
           $('#search-term-input').on("keyup change paste click", function() {
             var href = $('#href');
@@ -155,7 +142,7 @@
 
         function linkCategories() {
           var categories = ["Popular", "Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Sweet"];
-          var categoryNames = ["Popular", "Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Sweet"];
+          var categoryNames = ["Popular", "Tropical", "Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Sweet"];
           var menu = $('#categories');
           for (var i=0; i<categories.length; i++) {
             var category = categories[i];
