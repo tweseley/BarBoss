@@ -191,7 +191,7 @@
           for (var i=0; i<drinksList.length; i++) {
             var drink = drinksList[i];
             var container = $('<div>', {"class":"col-xs-6 col-sm-4 col-lg-3"});
-            var thumbnail = $('<div>', {class: "thumbnail", style: "height: 500px;"});
+            var thumbnail = $('<div>', {class: "thumbnail", style: "height: 420px;"});
             var img = $('<img>', {src: drink.url, style: "width: 300px; height:200px"});
             var caption = $('<div>', {class: "caption", style: "padding-top: 0px"});
             var title = $('<h3>', {style: "font-family: georgia; color: black; text-align: center; padding-top: -10px;"}).text(drink.name);
@@ -208,7 +208,7 @@
             var imageHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             imageHref.append(img);
             if (drink.tags.indexOf("popular") >= 0) {
-                //title.append(favoriteImage);
+                //gtitle.append(favoriteImage);
             };
             title.append(editHref);
             caption.append(titleHref);
