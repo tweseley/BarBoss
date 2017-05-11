@@ -182,7 +182,7 @@
           var drink = matchedDrinks[i];
           var thumbnail = $('<div>', {class: "thumbnail", style: "width: 700px; margin-left: 19%" });
           var img = $('<img>', {src: drink.url, style: "width: 200px; height:200px; float: left; margin-right: 20px"});
-          var caption = $('<div>', {class: "caption"})
+          var caption = $('<div>', {class: "caption", style: "height:225px"})
           var header = $('<h3>', {style: "color: black"}).text(drink.name);
           var headerHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
           headerHref.append(header);
