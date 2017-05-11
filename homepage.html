@@ -207,8 +207,8 @@
         });
 
         function linkCategories() {
-          var categories = ["Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Sweet"];
-          var categoryNames = ["Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Sweet"];
+          var categories = ["Popular", "Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Sweet"];
+          var categoryNames = ["Popular", "Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Sweet"];
           var menu = $('#categories');
           for (var i=0; i<categories.length; i++) {
             var category = categories[i];
@@ -259,8 +259,12 @@
             var title = $('<h3>', {style: "font-family: georgia; color: black; text-align: center; padding-top: -10px;"}).text(drink.name);
             var titleHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             titleHref.append(title);
+            var starImage = $('<img>', {src: "http://www.clipartbest.com/cliparts/dT6/XAa/dT6XAa6Ac.jpg", style: "width: 50px; height:30px", title:"Popular Drink"});
             var imageHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             imageHref.append(img);
+            if (drink.tags.indexOf("popular") >= 0) {
+                title.append(starImage);
+            };
             caption.append(titleHref);
             var num = Math.min(6, drink.tags.length);
             for (var j=0; j<num; j++) {
