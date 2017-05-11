@@ -64,6 +64,7 @@
 
     <div id="drinkBody" style = "margin-top: 50px"></div>
 
+
     <script language="javascript">
       function logout() {
         // sessionStorage.clear();
@@ -192,7 +193,11 @@
           headerHref.append(header);
           var imageHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
           imageHref.append(img);
+          var starImage = $('<img>', {src: "http://www.clipartbest.com/cliparts/dT6/XAa/dT6XAa6Ac.jpg", style: "width: 50px; height:30px", title:"Popular Drink"});
           caption.append(headerHref);
+          if (drink.tags.indexOf("popular") >= 0) {
+                header.append(starImage);
+          };
           for (var j=0; j<drink.tags.length; j++) {
             var tag = drink.tags[j];
             var drinkHref = $('<a>', {href: getRelativeHref("/searchresults.html?results="+tag)});
@@ -233,7 +238,7 @@
       }
 
       $(document).ready(function() {
-        $('#search-term-input').keyup(function() {
+        $('#search-term-input').on("keyup change paste click", function() {
           var href = $('#href');
           var searchButton = $('#searchButton');
           var searchParams = $(this).val();

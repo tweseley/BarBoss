@@ -4,12 +4,12 @@
 //
 // template: var drinkName = {"name": "", "tags": [], "ingredients": [], "directions": "", "url": ""}
 
-var mojito = {href: "mojito", "name": "Mojito", "tags": ["rum", "lime", "mint", "sugar", "refreshing", "sour"],
+var mojito = {href: "mojito", "name": "Mojito", "tags": ["rum", "lime", "mint", "sugar", "refreshing", "sour", "popular"],
   "ingredients": ["10 mint leaves", "1 cup ice cubes", "1.5 ounces rum", "2 tablespoons sugar",
   ".5 cup club soda"], "directions": "Muddle mint, add ice, serve with straw.",
   "url": "http://cdn-img.health.com//sites/default/files/wp_migrated_images/skinnygirl-mint-mojito-400x400.jpg"}
 
-var margarita = {href: "margarita", "name": "Margarita", "tags": ["tequila", "triple sec", "lime", "salt", "sour"],
+var margarita = {href: "margarita", "name": "Margarita", "tags": ["tequila", "triple sec", "lime", "salt", "sour", "popular"],
   "ingredients": [".75 oz Fresh squeezed lime juice", "1 oz triple sec", "1.5 oz blanco tequila", "salt"],
   "directions": "Shake with Ice. Garnish with lime.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2013/04/Partida-Margarita.jpg"};
@@ -35,7 +35,7 @@ var daiquiri = {href: "daiquiri", "name": "Daiquiri", "tags": ["rum", "lime", "s
   "directions": "Shake with ice. Garnish with a lime wheel.",
   "url": "http://punchdrink.com/wp-content/uploads/2014/01/key-daiquiri.jpg"};
 
-var whiskeySour = {href: "whiskeySour", "name": "Whiskey Sour", "tags": [ "bourbon", "lemon", "simple syrup", "cherry", "sour"],
+var whiskeySour = {href: "whiskeySour", "name": "Whiskey Sour", "tags": [ "bourbon", "lemon", "simple syrup", "cherry", "sour", "popular"],
   "ingredients": ["1.5 oz Bourbon", ".75 oz Fresh lemon juice", ".75 oz Simple syrup (1 part water, 1 part sugar)", "1  Cherry"],
   "directions": "Shake with Ice. Garnish with a cherry and lemon wedge.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2011/07/fa-Whiskey-Sour.jpg"};
@@ -50,7 +50,7 @@ var bloodyMary = {href: "bloodyMary", "name": "Bloody Mary", "tags": ["vodka", "
   "directions": "Coat rim of glass with salt. Add Ice. Add lemon juice. Shake with ice. Garnish with a celery stalk and a lime wedge.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2011/09/10210138/bloody-mary-recipe.jpg"};
 
-var sidecar = {href: "sidecar", "name": "Sidecar", "tags": ["cognac", "triple sec", "lemon", "sugar", "sweet"],
+var sidecar = {href: "sidecar", "name": "Sidecar", "tags": ["cognac", "triple sec", "lemon", "sugar", "sweet", "popular"],
   "ingredients": ["2 tbsp sugar", "1 lemon wedge", "1.5 oz Cognac", "1 oz Triple Sec", ".5 oz fresh lemon juice", "1 cup ice"],
   "directions": "Coat rim of glass with sugar. Shake with ice. Garnish with a piece of orange peel.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2011/09/sidecar2.jpg"};
@@ -75,7 +75,7 @@ var mintJulep = {href: "mintJulep", "name": "Mint Julep", "tags": ["bourbon", "m
   "directions": "Stir with ice. Top with more crushed ice to form an ice dome and garnish with a few drops of bitters.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2013/04/Mint-Julep.jpg"};
 
-var mimosa = {href: "mimosa", "name": "Mimosa", "tags": ["sparkling wine", "orange juice", "sweet"],
+var mimosa = {href: "mimosa", "name": "Mimosa", "tags": ["sparkling wine", "orange juice", "sweet", "popular"],
   "ingredients": ["3 oz Orange juice", "3 oz Sparkling wine, chilled"],
   "directions": "Add the orange juice to a Champagne flute. Fill with sparkling wine.",
   "url": "http://www.thedrinkkings.com/wp-content/uploads/2014/06/Mimosa-10.jpg"};
@@ -100,7 +100,7 @@ var darkAndStormy = {href: "darkAndStormy", "name": "Dark and Stormy", "tags": [
   "directions": "Shake with ice. Top with the ginger beer. Garnish with a lime wedge.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2016/10/04133803/dark-n-stormy-720sq.jpg"};
 
-var pinaColada = {href: "pinaColada", "name": "Pina Colada", "tags": ["rum", "coconut milk", "coconut", "pineapple", "sweet"],
+var pinaColada = {href: "pinaColada", "name": "Pina Colada", "tags": ["rum", "coconut milk", "coconut", "pineapple", "sweet", "popular"],
   "ingredients": ["1.5 oz Light or gold rum", "2 oz Coconut milk", "2 oz Fresh pineapple juice"],
   "directions": "Shake with ice. Garnish with a cherry and a pineapple wedge.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2015/03/Draaanks-Pina-Colada.jpeg"};
@@ -115,7 +115,7 @@ var caipirinha = {href: "caipirinha", "name": "Caipirinha", "tags": ["cachaca", 
   "directions": "Muddle the sugar and lime. Stir with ice. Garnish with a lime wheel.",
   "url": "http://www.tastecocktails.com/wp-content/uploads/2016/07/caiprinha-feature.jpg"};
 
-var whiteRussian = {href: "whiteRussian", "name": "White Russian", "tags": ["vodka", "kahlua", "heavy cream", "sweet"],
+var whiteRussian = {href: "whiteRussian", "name": "White Russian", "tags": ["vodka", "kahlua", "heavy cream", "sweet", "popular"],
   "ingredients": ["2 oz Vodka", "1 oz Kahlua", "1 oz Heavy Cream"],
   "directions": "Stir with ice ice. Top with a large splash of heavy cream.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2011/09/02120028/white-russian-720x720-recipe.jpg"};
@@ -141,7 +141,7 @@ var tagsList = ["rum", "lime", "mint", "sugar", "refreshing", "tequila", "triple
   "cointreau", "cranberry juice", "almond syrup", "orange curaçao", "irish whiskey", "brown sugar syrup",
   "coffee", "whipped cream", "cognac", "tomato juice", "tabasco sauce", "horseradish", "celery salt",
   "pepper", "paprika", "worcestershire sauce", "bitters", "cherry", "rye", "whiskey", "orange", "kahlua",
-  "heavy cream", "egg", "applejack", "sweet", "sour", "bitter", "berry", "herb", "spicy"];
+  "heavy cream", "egg", "applejack", "sweet", "sour", "bitter", "berry", "herb", "spicy", "popular"];
 
 var alcoholList = ["rum", "tequila", "gin", "whiskey", "vodka", "champagne", "beer", "wine", "white wine", "red wine",
   "cachaca", "kahlua", "cognac", "rye", "cointreau", "sparkling wine", "bourbon", "vermouth", "triple sec", "irish whiskey",

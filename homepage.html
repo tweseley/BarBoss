@@ -25,18 +25,18 @@
 
 
     <div class="container">
-    	<div class="row">
+      <div class="row">
         <div class="col-xs-6 col-sm-4 col-lg-3">
 
           <div class="dropdown" style = "margin-left: 50%; margin-top: 38%;" >
+
             <button class="btn btn-primary dropdown-toggle" style = "background-color: forestgreen; font-family: georgia" type="button" data-toggle="dropdown">Show Categories
-            <span class="caret"></span></button>
+              <span class="caret"></span></button>
             <ul class="dropdown-menu" id="categories"></ul>
           </div>
 
+        </div>
 
-
-    		</div>
         <div class="col-xs-12 col-sm-8 col-lg-6">
           <div>
             <h1 style = "text-align: center; font-size: 60px; font-family: cursive ">Bar Boss</h1>
@@ -48,10 +48,11 @@
                     document.getElementById('searchButton').click()" style = "margin-left: 10px; margin-top: 10px; " >
               <div id="results-list" style = "background-color: white"></div>
 
+
               <span class="input-group-btn">
                 <a id="href">
                   <button class="btn btn-info btn-lg" id="searchButton" type="button" style = "display: None">
-                      <i class="glyphicon glyphicon-search" ></i>
+                    <i class="glyphicon glyphicon-search" ></i>
                   </button>
                 </a>
               </span>
@@ -64,10 +65,10 @@
 
         <div style = "float: right">
           <label id="userName" style = "font-family: georgia; font-weight: 100;"></label>
-          <a class="btn btn-primary" href="#" onclick="logout()" style = "margin-left: 20px; font-family: Georgia">Log Out</a>
+          <a class="btn btn-primary" onclick=window.location.href="addDrink.html"; style="margin-left: 15px; margin-top: 0px; background-color:mediumpurple; font-family: Georgia">Add Drink</a>
+          <b class="btn btn-primary" href="#" onclick="logout()" style = "margin-left: 15px; font-family: Georgia">Log Out</b>
         </div>
-
-    </div>
+      </div>
 
 
 
@@ -153,8 +154,8 @@
         });
 
         function linkCategories() {
-          var categories = ["Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Spirits Palpable", "Sweet"];
-          var categoryNames = ["Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Sweet"];
+          var categories = ["Popular", "Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Sweet"];
+          var categoryNames = ["Popular", "Berry", "Bitter", "Refreshing", "Fruity", "Herb", "Sour", "Spicy", "Sweet"];
           var menu = $('#categories');
           for (var i=0; i<categories.length; i++) {
             var category = categories[i];
@@ -205,8 +206,12 @@
             var title = $('<h3>', {style: "font-family: georgia; color: black; text-align: center; padding-top: -10px;"}).text(drink.name);
             var titleHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             titleHref.append(title);
+            var starImage = $('<img>', {src: "http://www.clipartbest.com/cliparts/dT6/XAa/dT6XAa6Ac.jpg", style: "width: 50px; height:30px", title:"Popular Drink"});
             var imageHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             imageHref.append(img);
+            if (drink.tags.indexOf("popular") >= 0) {
+                title.append(starImage);
+            };
             caption.append(titleHref);
             var num = Math.min(6, drink.tags.length);
             for (var j=0; j<num; j++) {
