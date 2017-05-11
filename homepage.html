@@ -197,11 +197,12 @@
             var title = $('<h3>', {style: "font-family: georgia; color: black; text-align: center; padding-top: -10px;"}).text(drink.name);
             var titleHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             titleHref.append(title);
-            var starImage = $('<img>', {src: "http://www.clipartbest.com/cliparts/dT6/XAa/dT6XAa6Ac.jpg", style: "width: 50px; height:30px", title:"Popular Drink"});
+            var favoriteImage = $('<img>', {src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAL0AAAELCAMAAAC77XfeAAAAdVBMVEX/////AAD/wsL/trb/sLD/7e3/8/P/u7v/y8v/mJj/aGj/+fn/n5//rKz/a2v/Ghr/enr/f3//XV3/4OD/Ojr/ior/0tL/jo7/Pj7/IyP/TEz/Dw//NDT/5eX/YmL/p6f/V1f/3Nz/g4P/LS3/lZX/c3P/RUVteCYYAAADqUlEQVR4nO3c6VLiUBCGYU4kiKKiuCIiIOr9X+KIDgOYrU/S3Qk17/O/qz6p5Kwdez0AAAAAAAAAAAAAAAAAAAAAAAAAAAAA/4NROkySyyR5SOU1g9thcnKSDFcDu1zV0tPrddi5e0tGlTWrxWS8K5ktL1YOQXP0P0PWJCkrSR/HOTX37n/A4C0nxo+LoprVsqjkrvRvVndTmH2jn1cyL8y+sX5wy35Smn3zW95mah6raq6cXuHXqiAh8/jMXwQ1Q4fs85kgyNfru19zKioJj+bhH2RBQpjuRs8zac2VcfhEGuRrLN/OX/fymqVpePEvvzH+eQ/fY2peDcPfxgQJ4WVT04+rubZLHxckhPOvKSq2Jney0FA63xREiS4Jc5vwkc/At/P4kqlJ+FGN8LUULpSauPZKHwzWDKlb+HCjn97vpzf48QeO4fUXPAvP9DPt9Hee6YPyXmXuGl57vVBnpmpgrJv+yjd9iDgdEnAOH06POv2ZZvjIhX1zH5rpIzaEOp4101ee4Ghba6a/9E6vOtu6rhO+aaZ3nqyU0x/3cy88ytPzpJk+6hRKg+qZoPMSM4R7zfTuK4VL1fSyY289umf53ivk6svHGBe+4ZV3J86DjvZJsm967RvQiWt63cfeeZU5qc4Tx/UsTf/qXHJLq0U9vOfm0OLeNq+9w4bFnb/be2twfN/zG/Jt2i2cNrfvJuG9nnyj8L2hR3i7NimHMf/cLLzHla32Cmef+ZRl2x/1YRvearzZkjSY1bY0Dm96ZW7TX3HAcI/o0dNodqaZbeK0YHS+4NUNG9HkJ+fXimzQL+LZR60e37cJXDm+b/iqHvZIHv3Thypb0uX8eu931LZaPuP8bzrT1ky3HUROY6+1tlzQl2vefKHajxArbbhRN9wHSowaddu9tRu+1+hg36ThOFLteUu3e6uumivmNuaoPLW6GIw+Eqghfrc4bfXj1F9i+xie2puj8gymMeGXbcfNeJKHb3mOyiX+Isjwk6oGhJ0Yuq03ekTzlmqPrirBUUkXVgdFKr9FXbSdsFRF/G6Hr4jf3Wd+q+Rz2q6ONvsKX91ujvO/FZyzdXGGzZN7MfrZdiqxnP8wotzlZyq74mzrzKmOTB9YV7aBMqvD8LptxfYODjlVvz9ysfcPdlQ/ZHDyfJRv7Na/hpJunDrF+ntOYv2PWax8Xw6pf2Xt5vPoRvp9aRcOuevrm3X4uWjnPhAAAAAAAAAAAAAAAAAAAAAAAAAAAACm/gCNOTFnh7RdQwAAAABJRU5ErkJggg==",
+                style: "width: 30px; height:45px; margin-left:5px; margin-bottom:5px", title:"Popular Drink"});
             var imageHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             imageHref.append(img);
             if (drink.tags.indexOf("popular") >= 0) {
-                title.append(starImage);
+                title.append(favoriteImage);
             };
             caption.append(titleHref);
             var num = Math.min(6, drink.tags.length);

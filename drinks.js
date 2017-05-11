@@ -132,10 +132,13 @@ var tequilaSunrise = {href: "tequilaSunrise", "name": "Tequila Sunrise", "tags":
   "directions": "Add the tequila and then the orange juice to a chilled highball glass. Float the grenadine on top and garnish with an orange slice and a cherry.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2017/03/07152925/tequila-sunrise-720x720-recipe.jpg"};
 
+var newDrink = {href: "new", "name": "New Drink", "tags": ["Customize me!"], "ingredients": [], "directions": "",
+  "url": "http://clipart-library.com/images/8T65jX9Gc.png"}
+
 var drinksList = [mojito, margarita, caipirinha, longIslandIcedTea, pinaColada,
   darkAndStormy, negroni, tomCollins, plantersPunch, mimosa, mintJulep, cosmopolitan,
   maiTai, irishCoffee, sidecar, bloodyMary, dryMartini, whiskeySour, daiquiri,
-  manhattan, oldFashioned, moscowMule, whiteRussian, fortWashingtonFlip, tequilaSunrise];
+  manhattan, oldFashioned, moscowMule, whiteRussian, fortWashingtonFlip, tequilaSunrise, newDrink];
 
 var tagsList = ["rum", "lime", "mint", "sugar", "refreshing", "tequila", "triple sec", "salt", "cachaca", "gin",
   "simple syrup", "lemon", "cola", "pineapple", "coconut milk", "coconut", "ginger beer", "campari", "vermouth",
@@ -143,7 +146,7 @@ var tagsList = ["rum", "lime", "mint", "sugar", "refreshing", "tequila", "triple
   "cointreau", "cranberry juice", "almond syrup", "orange curaçao", "irish whiskey", "brown sugar syrup",
   "coffee", "whipped cream", "cognac", "tomato juice", "tabasco sauce", "horseradish", "celery salt",
   "pepper", "paprika", "worcestershire sauce", "bitters", "cherry", "rye", "whiskey", "orange", "kahlua",
-  "heavy cream", "egg", "applejack", "sweet", "sour", "bitter", "berry", "herb", "spicy", "popular"];
+  "heavy cream", "egg", "applejack", "sweet", "sour", "bitter", "berry", "herb", "spicy", "popular", "tropical"];
 
 var alcoholList = ["rum", "tequila", "gin", "whiskey", "vodka", "champagne", "beer", "wine", "white wine", "red wine",
   "cachaca", "kahlua", "cognac", "rye", "cointreau", "sparkling wine", "bourbon", "vermouth", "triple sec", "irish whiskey",
