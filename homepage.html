@@ -200,17 +200,17 @@
             var favoriteImage = $('<img>', {src: "http://www.clker.com/cliparts/9/A/I/s/M/X/heart-fund-logo-md.png",
                 style: "width: 20px; height:20px; margin-left:5px; margin-bottom:5px; float:right", title:"Popular Drink"});
 
-            var editImage = $('<img>', {src: "http://img.freepik.com/free-icon/edit-button_318-77528.jpg?size=338&ext=jpg", style: "width: 20px; height:20px; float:right"});
+            var editImage = $('<img>', {src: "http://img.freepik.com/free-icon/edit-button_318-77528.jpg?size=338&ext=jpg", style: "width: 20px; height:20px; float:right; margin-left: 10px;"});
             var editHref = $('<a>', {href: getRelativeHref("#")});
             editHref.append(editImage)
 
 
             var imageHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
             imageHref.append(img);
-            if (drink.tags.indexOf("popular") >= 0) {
-                //gtitle.append(favoriteImage);
-            };
             title.append(editHref);
+            if (drink.tags.indexOf("popular") >= 0) {
+                title.append(favoriteImage);
+            };
             caption.append(titleHref);
             var num = Math.min(6, drink.tags.length);
             for (var j=0; j<num; j++) {
