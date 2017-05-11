@@ -14,6 +14,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="drinks.js"></script>
+    <script src="./words.js" charset="utf-8"></script>
+    <script src="./controller.js" charset="utf-8"></script>
+    <script src="./Trie.js" charset="utf-8"></script>
 
   </head>
 
@@ -38,24 +41,28 @@
             <div>
               <h1 style = "text-align: center; font-size: 60px; font-family: cursive; margin-top: 0px">Bar Boss</h1>
             </div>
-            <div id="custom-search-input" style = "margin-top: 5%; margin-bottom: 5%">
-                <div class="input-group col-md-12" id="search">
-                    <input type="text" class="form-control input-lg" list="dropdown" placeholder="Search tags or a drink..." id="input" onkeydown = "if (event.keyCode == 13)
-                        document.getElementById('searchButton').click()"/>
-                    <datalist id="dropdown"></datalist>
-                    <span class="input-group-btn">
-                      <a id="href">
-                        <button id = "searchButton" class="btn btn-info btn-lg" type="button" disabled>
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                      </a>
-                    </span>
-                </div>
-            </div>
+
+
+
+
+              <input id="search-term-input" type="text" placeholder="Search tags or a drink..." onkeydown="if (event.keyCode == 13)
+                    document.getElementById('searchButton').click()" style = "margin-left: 10px; margin-top: 10px; " >
+              <ul id="results-list" style = "background-color: white; width: 94%; font-family: georgia"></ul>
+
+              <span class="input-group-btn">
+                <a id="href">
+                  <button class="btn btn-info btn-lg" id="searchButton" type="button" style = "display: None">
+                      <i class="glyphicon glyphicon-search" ></i>
+                  </button>
+                </a>
+              </span>
+
+
+
           </div>
     </div>
 
-    <div id="drinkBody"></div>
+    <div id="drinkBody" style = "margin-top: 50px"></div>
 
     <script language="javascript">
       function logout() {
@@ -128,7 +135,7 @@
 
       function getOrderedDrinkList() {
         var matchedDrinks = [];
-        var searchBody = $('#input').val();
+        var searchBody = $('#search-term-input').val();
         for (var i=0; i<drinksList.length; i++) {
           var drink = drinksList[i];
           var matches = numMatches(drink, searchBody);
@@ -177,9 +184,9 @@
         var matchedDrinks = getOrderedDrinkList();
         for (var i=0; i<matchedDrinks.length; i++) {
           var drink = matchedDrinks[i];
-          var thumbnail = $('<div>', {class: "thumbnail", style: "width: 700px; margin-left: 23%" });
+          var thumbnail = $('<div>', {class: "thumbnail", style: "width: 700px; margin-left: 19%" });
           var img = $('<img>', {src: drink.url, style: "width: 200px; height:200px; float: left; margin-right: 20px"});
-          var caption = $('<div>', {class: "caption", style: "margin-bottom: 80px"})
+          var caption = $('<div>', {class: "caption"})
           var header = $('<h3>', {style: "color: black"}).text(drink.name);
           var headerHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
           headerHref.append(header);
@@ -226,7 +233,7 @@
       }
 
       $(document).ready(function() {
-        $('#input').keyup(function() {
+        $('#search-term-input').keyup(function() {
           var href = $('#href');
           var searchButton = $('#searchButton');
           var searchParams = $(this).val();
@@ -244,7 +251,7 @@
           return results[1] || 0;
         }
         var results = $.urlParam('results');
-        var input = $('#input');
+        var input = $('#search-term-input');
         input.val(decodeURIComponent(results));
         populateDrinks();
         populateDropdown();
@@ -252,6 +259,38 @@
 
     </script>
 
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function () {
+
+      var trie = Trie();
+      var load = function(WORDS) {
+        WORDS.forEach( function(e) { trie.insert(e,0) } );
+      }
+      load(WORDS);
+
+      CONTROLLER.registerAutocompleteListener(function (word) {
+
+        var NUM_WORDS_TO_SHOW = 10;
+
+        CONTROLLER.clearSearchResults();
+
+        CONTROLLER.appendToSearchResults(word);
+
+         var suggestions = trie.autocomplete(word,0);
+         var sortedSuggestions = suggestions.sort();
+
+      "EXAMPLE USE OF FUNCTIONALS"
+         sortedSuggestions.slice(0,10).forEach(function(e) {
+          if (typeof e !== 'undefined')
+        CONTROLLER.appendToSearchResults(e);
+         });
+
+        });
+
+      });
+
+    </script>
 
   </body>
 

@@ -14,7 +14,9 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script src="drinks.js"></script>
-
+      <script src="./words.js" charset="utf-8"></script>
+      <script src="./controller.js" charset="utf-8"></script>
+      <script src="./Trie.js" charset="utf-8"></script>
   </head>
 
   <body>
@@ -26,7 +28,7 @@
     	<div class="row">
         <div class="col-xs-6 col-sm-4 col-lg-3">
 
-          <div class="dropdown" style = "margin-left: 40%; margin-top: 47%;" >
+          <div class="dropdown" style = "margin-left: 50%; margin-top: 38%;" >
             <button class="btn btn-primary dropdown-toggle" style = "background-color: forestgreen; font-family: georgia" type="button" data-toggle="dropdown">Show Categories
             <span class="caret"></span></button>
             <ul class="dropdown-menu" id="categories"></ul>
@@ -40,12 +42,11 @@
             <h1 style = "text-align: center; font-size: 60px; font-family: cursive ">Bar Boss</h1>
           </div>
 
-          <div id="custom-search-input" style = "margin-top: 5%; margin-bottom: 5%">
-            <div class="input-group col-md-12" id="search">
+
 
               <input id="search-term-input" type="text" placeholder="Search tags or a drink..." onkeydown="if (event.keyCode == 13)
                     document.getElementById('searchButton').click()" style = "margin-left: 10px; margin-top: 10px; " >
-              <ul id="results-list"></ul>
+              <div id="results-list" style = "background-color: white"></div>
 
               <span class="input-group-btn">
                 <a id="href">
@@ -55,74 +56,12 @@
                 </a>
               </span>
 
-            </div>
-          </div>
 
-          <script src="./words.js" charset="utf-8"></script>
-          <script src="./controller.js" charset="utf-8"></script>
-          <script src="./Trie.js" charset="utf-8"></script>
-          <script>
-
-          	document.addEventListener('DOMContentLoaded', function () {
-
-        	  // Instantiate your trie data type here, and load the words
-        	  // in the provided JSON dictionary (accessible as an array
-        	  // stored in the variable 'WORDS') into the data structure.
-
-        		"EXAMPLE USE OF FUNCTIONALS"
-        		var trie = Trie();
-        		var load = function(WORDS) {
-        			WORDS.forEach( function(e) { trie.insert(e,0) } );
-        		}
-        		load(WORDS);
-
-        	  // After instantiating and populating your trie above, you need
-        	  // to register a listener function to be called after each
-        	  // keypress. The body of the function below will serve this
-        	  // purpose -- note that, as a listener, it will be called _each time_
-        	  // a keypress occurs. The current value in the search box will be passed
-        	  // in via the argument 'word'. Perform whatever operations are
-        	  // necessary to obtain a list of suggested words from your trie, then
-        	  // populate the drop-down using the provided methods 'clearSearchResults'
-        	  // and 'appendToSearchResults'. An example of this is shown
-        	  // below where we simply display the current input along with
-        	  // some random words from the dictionary. You'll want to populate
-        	  // the list with the desired suggestions instead.
-        	  CONTROLLER.registerAutocompleteListener(function (word) {
-
-        	  	// This function is called on _every_ keypress (that is,
-        	  	// change to the search box). Modify this sample with your
-        	    // code to provide autocompletion suggestions.
-
-        	  	var NUM_WORDS_TO_SHOW = 10;
-        	  	//var i, randomWord;
-
-        	  	CONTROLLER.clearSearchResults();
-
-        	  	// Display the current word
-        	  	CONTROLLER.appendToSearchResults(word);
-
-        	  	//suggestions will be a list of recommended words
-        	  	 var suggestions = trie.autocomplete(word,0);
-        	  	//sort lexicographically
-        	  	 var sortedSuggestions = suggestions.sort();
-
-        		"EXAMPLE USE OF FUNCTIONALS"
-        	  	 sortedSuggestions.slice(0,10).forEach(function(e) {
-        	  	 	if (typeof e !== 'undefined')
-        			CONTROLLER.appendToSearchResults(e);
-        	  	 });
-
-              });
-
-          	});
-
-          </script>
 
 
 
         </div>
-        
+
         <div style = "float: right">
           <label id="userName" style = "font-family: georgia; font-weight: 100;"></label>
           <a class="btn btn-primary" href="#" onclick="logout()" style = "margin-left: 20px; font-family: Georgia">Log Out</a>
@@ -292,7 +231,43 @@
 
     </script>
 
+    <script>
 
+      document.addEventListener('DOMContentLoaded', function () {
+
+      // Instantiate your trie data type here, and load the words
+      // in the provided JSON dictionary (accessible as an array
+      // stored in the variable 'WORDS') into the data structure.
+
+      "EXAMPLE USE OF FUNCTIONALS"
+      var trie = Trie();
+      var load = function(WORDS) {
+        WORDS.forEach( function(e) { trie.insert(e,0) } );
+      }
+      load(WORDS);
+
+      CONTROLLER.registerAutocompleteListener(function (word) {
+
+        var NUM_WORDS_TO_SHOW = 10;
+
+        CONTROLLER.clearSearchResults();
+
+        CONTROLLER.appendToSearchResults(word);
+
+         var suggestions = trie.autocomplete(word,0);
+
+         var sortedSuggestions = suggestions.sort();
+
+         sortedSuggestions.slice(0,10).forEach(function(e) {
+          if (typeof e !== 'undefined')
+        CONTROLLER.appendToSearchResults(e);
+         });
+
+        });
+
+      });
+
+    </script>
 
   </body>
 

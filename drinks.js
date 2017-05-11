@@ -14,7 +14,7 @@ var margarita = {href: "margarita", "name": "Margarita", "tags": ["tequila", "tr
   "directions": "Shake with Ice. Garnish with lime.",
   "url": "http://cdn.liquor.com/wp-content/uploads/2013/04/Partida-Margarita.jpg"};
 
-var moscowMule = {href: "moscowMule", "name": "Moscow Mule", "tags": ["vodka", "ginger beer", "lime", "sour", "collins", "sour", "herb", "spicy"],
+var moscowMule = {href: "moscowMule", "name": "Moscow Mule", "tags": ["vodka", "ginger beer", "lime", "sour", "sour", "herb", "spicy"],
   "ingredients": ["1.5 oz vodka", ".5 oz lime juice", ".5 cup ginger beer", "1 lime wedge", "ice cubes"],
   "directions": "Stir. Garnish with lime.",
   "url": "http://www.thedrinkkings.com/wp-content/uploads/2015/12/Moscow-Mule-6-630-630x660.jpg"};
@@ -137,7 +137,7 @@ var drinksList = [mojito, margarita, caipirinha, longIslandIcedTea, pinaColada,
 
 var tagsList = ["rum", "lime", "mint", "sugar", "refreshing", "tequila", "triple sec", "salt", "cachaca", "gin",
   "simple syrup", "lemon", "cola", "pineapple", "coconut milk", "coconut", "ginger beer", "campari", "vermouth",
-  "club soda", "grenadine", "orange juice", "fruity", "sparkling wine", "bourbon", "sours", "citus", "vodka",
+  "club soda", "grenadine", "orange juice", "fruity", "sparkling wine", "bourbon", "citrus", "vodka",
   "cointreau", "cranberry juice", "almond syrup", "orange curaçao", "irish whiskey", "brown sugar syrup",
   "coffee", "whipped cream", "cognac", "tomato juice", "tabasco sauce", "horseradish", "celery salt",
   "pepper", "paprika", "worcestershire sauce", "bitters", "cherry", "rye", "whiskey", "orange", "kahlua",
