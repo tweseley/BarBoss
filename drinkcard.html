@@ -35,14 +35,6 @@
       <div class="col-xs-4" id="left-col">
         <div class="caption" style = "margin-bottom: 80px">
 
-            <div class="form-group" style="float: left">
-              <label for="comment" style = "font-family: georgia">Ordering Instructions:</label>
-              <textarea class="form-control" style = "width: 250px" rows="5" id="comment"></textarea>
-            </div>
-            <div class="popup" onclick="popUp()" style = "margin-top: 20px; width:100%; margin-left: 80px;">
-              <button type="button" class="btn btn-success" style = "font-family: georgia">Send to Bar</button>
-              <span style = "margin-left: -240px" class="popuptext" id="myPopup">Your drink has been sent to the bar!</span>
-            </div>
       </div>
     </div>
       <div class="col-xs-8">
@@ -51,7 +43,14 @@
 
       </div>
 
-
+      <div class="form-group" style="float: right; margin-right: 400px; margin-top: 50px;">
+        <label for="comment" style = "font-family: georgia">Ordering Instructions:</label>
+        <textarea class="form-control" style = "width: 250px" rows="5" id="comment"></textarea>
+      </div>
+      <div class="popup" onclick="popUp()" style = "margin-top: 20px; width:100%; margin-left: 80px; float:right">
+        <button type="button" class="btn btn-success" style = "font-family: georgia; float:right; margin-right: 477px">Send to Bar</button>
+        <span style = "margin-left: -240px; float:right" class="popuptext" id="myPopup">Your drink has been sent to the bar!</span>
+      </div>
 
 
         </div>
@@ -95,9 +94,16 @@
         }
       }
 
+      function getRelativeHref(href) {
+        var currentLocation = window.location.href;
+        var prefixArray = currentLocation.split('/');
+        var prefixArray = prefixArray.slice(0, prefixArray.length - 1);
+        return prefixArray.join('/') + href;
+      }
+
       function populateDrink(drink) {
         var div = $('#dynamic');
-        var title = $('<h3>', {style: "font-size: 60px; text-align: center"}).text(drink.name);
+        var title = $('<h3>', {style: "font-size: 60px; text-align: center; font-family: georgia"}).text(drink.name);
         var ul = $('<ul>', {style: "font-size: 20px; margin-top: 40px"})
         for (var i=0; i<drink.ingredients.length; i++){
           var li = $('<li>').text(drink.ingredients[i]);
@@ -107,6 +113,23 @@
         ul.append($('<br>')).append(instructions);
         div.prepend(ul).prepend(title);
         $('#left-col').prepend($('<img>', {src: drink.url, style: "width: 300px; float: left; margin-right: 20px; margin-bottom: 60px"}));
+
+
+        var num = Math.min(6, drink.tags.length);
+        for (var j=0; j<num; j++) {
+          var tag = drink.tags[j];
+          var drinkHref = $('<a>', {href: getRelativeHref("/searchresults.html?results="+tag)});
+          if ($.inArray(tag, alcoholList) > -1) {
+            var button = $('<button>', {title:"Purple tags are alcoholic", class: "btn btn-secondary", type: "button", style: "color: black; background-color: orchid; font-family: georgia" }).text(tag);
+          } else {
+            var button = $('<button>', {title:"Click a tag to search for it", class: "btn btn-secondary", type: "button", style: "color: black; font-family: georgia"}).text(tag);
+          }
+          drinkHref.append(button);
+          $('#left-col').append(drinkHref);
+        }
+
+
+
       }
 
       $(document).ready(function() {
@@ -128,6 +151,8 @@
         populateDrink(drinkObj);
 
       })
+
+
 
       // When the user clicks on <div>, open the popup
       function popUp() {
