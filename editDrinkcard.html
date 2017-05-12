@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Edit Drink Card</title>
+
+    <!-- Bootstrap -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="homepage.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="drinks.js"></script>
+
+  </head>
+
+  <body style = "background-color: gba(0, 0, 0, 0.03)">
+
+  <button type="button" class="btn btn-default btn-secondary" style="position: fixed; margin-left: 20px; font-family: Georgia" onclick="home()" >
+    <span class="glyphicon glyphicon-home"></span> Home
+  </button>
+
+  <div style = "float: right">
+    <label id="userName" style = "font-family: georgia; font-weight: 100;"></label>
+    <a class="btn btn-primary" href="#" onclick="logout()" style = "margin-left: 20px; margin-right: 55px; font-family: georgia">Log Out</a>
+  </div>
+
+  <h1 style = "font-size: 70px; text-align: center; margin-top: 40px; color: black; font-family: Georgia">Edit Drink Card</h1>
+
+  <div style = "width: 30%; margin-left: 35%; margin-top: 3%">
+    <div class="form-group">
+      <label for="drinkName">Drink Name</label>
+      <input type="text" class="form-control" id="drinkName">
+    </div>
+    <div class="form-group">
+      <label for="drinkName">Comma-separated tags</label>
+      <input type="text" class="form-control" id="tags" maxlength="15">
+    </div>
+    <div class="form-group">
+      <label for="drinkName">Comma-separated ingredients</label>
+      <input type="text" class="form-control" id="ingredients">
+    </div>
+    <div class="form-group">
+      <label for="drinkName">Directions</label>
+      <input type="text" class="form-control" id="directions">
+    </div>
+    <div class="form-group">
+      <label for="drinkName">Image URL</label>
+      <input type="text" class="form-control" id="imageURL" onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('addDrinkButton').click()">
+    </div>
+  </div>
+
+
+    <script language="javascript">
+      //function fillForm() {
+        //  var drinkNameAnswer = sessionStorage.getItem('drinkName');
+          //var drinkNameTextbox= document.getElementByID("drinkName");
+          //drinkNameTextbox.value=drinkNameAnswer;
+      //}
+      function logout() {
+        // sessionStorage.clear();
+        window.location.href = "signin.html";
+      }
+
+      function home() {
+        window.location.href = "homepage.html";
+      }
+
+      function drinkAdded() {
+        if (sessionStorage.getItem('drinkName') != null && sessionStorage.getItem('tags') != null && sessionStorage.getItem('ingredients') != null &&
+                sessionStorage.getItem('directions') != null && sessionStorage.getItem('imageURL') != null) {
+          var addedDrinkName = sessionStorage.getItem('drinkName');
+          // Should be modified I'm guessing?
+          var addedHref = addedDrinkName;
+          var addedTags = sessionStorage.getItem('tags').split(',');
+          var addedIngredients = sessionStorage.getItem('ingredients').split(',');
+          var addedDirections = sessionStorage.getItem('directions');
+          var addedImage = sessionStorage.getItem('imageURL');
+
+          if (addedDrinkName != "" && addedTags != "" && addedIngredients != "" &&
+                  addedDirections != "" && addedImage != "" && addedHref != "") {
+            var drink = {
+              href: addedHref,
+              "name": addedDrinkName,
+              "tags": addedTags,
+              "ingredients": addedIngredients,
+              "directions": addedDirections,
+              "url": addedImage
+            };
+            drinksList.unshift(drink);
+          }
+        }
+      }
+
+      function getRelativeHref(href) {
+        var currentLocation = window.location.href;
+        var prefixArray = currentLocation.split('/');
+        var prefixArray = prefixArray.slice(0, prefixArray.length - 1);
+        return prefixArray.join('/') + href;
+      }
+
+      function populateDrink(drink) {
+        var div = $('#dynamic');
+        var title = $('<h3>', {style: "font-size: 60px; text-align: center; font-family: georgia"}).text("Edit "+drink.name);
+        var ul = $('<ul>', {style: "font-size: 20px; margin-top: 40px"})
+        for (var i=0; i<drink.ingredients.length; i++){
+          var li = $('<li>').text(drink.ingredients[i]);
+          ul.append(li);
+        }
+        var instructions = drink.directions;
+        ul.append($('<br>')).append(instructions);
+        div.prepend(ul).prepend(title);
+        $('#left-col').prepend($('<img>', {src: drink.url, style: "width: 300px; float: left; margin-right: 20px; margin-bottom: 60px"}));
+
+
+        var num = Math.min(6, drink.tags.length);
+        for (var j=0; j<num; j++) {
+          var tag = drink.tags[j];
+          var drinkHref = $('<a>', {href: getRelativeHref("/searchresults.html?results="+tag)});
+          if ($.inArray(tag, alcoholList) > -1) {
+            var button = $('<button>', {title:"Purple tags are alcoholic", class: "btn btn-secondary", type: "button", style: "color: black; background-color: orchid; font-family: georgia" }).text(tag);
+          } else {
+            var button = $('<button>', {title:"Click a tag to search for it", class: "btn btn-secondary", type: "button", style: "color: black; font-family: georgia"}).text(tag);
+          }
+          drinkHref.append(button);
+          $('#left-col').append(drinkHref);
+        }
+
+
+
+      }
+
+      $(document).ready(function() {
+        //fillForm();
+        drinkAdded();
+        $("#userName").text("Welcome, " + sessionStorage.getItem('userName'));
+        $.urlParam = function (name) {
+          var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+          return results[1] || 0;
+        }
+
+        var drink = $.urlParam('drink');
+        var drinkObj;
+        for (var i=0; i<drinksList.length; i++) {
+          if (drinksList[i].href == drink) {
+            drinkObj = drinksList[i];
+            break;
+          }
+        }
+        console.log(drinkObj);
+        populateDrink(drinkObj);
+      })
+
+
+
+      // When the user clicks on <div>, open the popup
+      function popUp() {
+        var comment = $('#comment');
+        comment.val('');
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+        setTimeout(function(){
+          popup.classList.toggle("hide");
+          setTimeout(function(){
+            popup.classList.toggle("show");
+          }, 900);
+        }, 3000);
+      }
+
+    </script>
+
+
+  </body>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

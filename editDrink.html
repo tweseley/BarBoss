@@ -23,12 +23,7 @@
     <span class="glyphicon glyphicon-home"></span> Home
   </button>
 
-  <div style = "float: right">
-    <label id="userName" style = "font-family: georgia; font-weight: 100;"></label>
-    <a class="btn btn-primary" href="#" onclick="logout()" style = "margin-left: 20px; margin-right: 55px; font-family: georgia">Log Out</a>
-  </div>
-
-    <h1 style = "font-size: 70px; text-align: center; margin-top: 40px; color: black; font-family: Georgia">Add Drink</h1>
+    <h1 style = "font-size: 70px; text-align: center; margin-top: 40px; color: black; font-family: Georgia">Edit Drink</h1>
 
 
     <div style = "width: 30%; margin-left: 35%; margin-top: 3%">
@@ -139,10 +134,6 @@
       function home() {
           window.location.href = "homepage.html";
       };
-
-      $(document).ready(function() {
-          $("#userName").text("Welcome, " + sessionStorage.getItem('userName'));
-      });
 
     </script>
 
