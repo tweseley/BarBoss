@@ -53,13 +53,86 @@
     </div>
   </div>
 
+  <div>
+    <a class="btn btn-primary" id = "deleteButton" href="#"
+       style = "margin-top: 20px; margin-left: 40%; background-color:red; font-family: Georgia">Delete Drink</a>
+    <a class="btn btn-primary" id = "editButton" href="#" onclick="addDrink()"
+       style = "margin-top: 20px; margin-left: 20px; background-color:darkgreen; font-family: Georgia">Finish Editing</a>
+  </div>
 
     <script language="javascript">
-      //function fillForm() {
-        //  var drinkNameAnswer = sessionStorage.getItem('drinkName');
-          //var drinkNameTextbox= document.getElementByID("drinkName");
-          //drinkNameTextbox.value=drinkNameAnswer;
-      //}
+
+        function addDrink(form) {
+            var drinkHREF = drinkName.value.replace(/\s+/g, '');
+            var drinkToAdd = drinkName.value.replace(/\s+/g, '');
+            console.log(drinkName.value);
+            var drinkToAdd = {
+                href: drinkHREF,
+                "name": drinkName.value,
+                "tags": [tags.value],
+                "ingredients": [ingredients.value],
+                "directions": [directions.value],
+                "url": [imageURL.value]
+            };
+            console.log(drinksList);
+            console.log(drinkToAdd);
+            drinksList.push(drinkToAdd);
+            console.log(drinksList);
+            //window.location.href = "homepage.html";
+
+            if (drinkName.value != "" && tags.value != "" && ingredients.value != "" && directions.value != "" && imageURL.value != "") {
+                sessionStorage.setItem('drinkName', drinkName.value);
+                sessionStorage.setItem('tags', tags.value);
+                sessionStorage.setItem('ingredients', ingredients.value);
+                sessionStorage.setItem('directions', directions.value);
+                sessionStorage.setItem('imageURL', imageURL.value);
+
+                home();
+            }
+            else {
+                //show validation message
+                if ($('#drinkName').val() == '') {
+                    $('#drinkName').css('border-color', 'red');
+                    $( "#drinkName" ).effect( "shake" );
+                }
+                else {
+                    $('#drinkName').css('border-color', '');
+                }
+
+                if ($('#tags').val() == '') {
+                    $('#tags').css('border-color', 'red');
+                    $( "#tags" ).effect( "shake" );
+                }
+                else {
+                    $('#tags').css('border-color', '');
+                }
+
+                if ($('#ingredients').val() == '') {
+                    $('#ingredients').css('border-color', 'red');
+                    $( "#ingredients" ).effect( "shake" );
+                }
+                else {
+                    $('#ingredients').css('border-color', '');
+                }
+
+                if ($('#directions').val() == '') {
+                    $('#directions').css('border-color', 'red');
+                    $( "#directions" ).effect( "shake" );
+                }
+                else {
+                    $('#directions').css('border-color', '');
+                }
+
+                if ($('#imageURL').val() == '') {
+                    $('#imageURL').css('border-color', 'red');
+                    $( "#imageURL" ).effect( "shake" );
+                }
+                else {
+                    $('#imageURL').css('border-color', '');
+                }
+            }
+        }
+
       function logout() {
         // sessionStorage.clear();
         window.location.href = "signin.html";
