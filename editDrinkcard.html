@@ -27,7 +27,7 @@
     <a class="btn btn-primary" href="#" onclick="logout()" style = "margin-left: 20px; margin-right: 55px; font-family: georgia">Log Out</a>
   </div>
 
-  <h1 style = "font-size: 70px; text-align: center; margin-top: 40px; color: black; font-family: Georgia">Edit Drink Card</h1>
+  <h1 id = "header" style = "font-size: 70px; text-align: center; margin-top: 40px; color: black; font-family: Georgia"></h1>
 
   <div style = "width: 30%; margin-left: 35%; margin-top: 3%">
     <div class="form-group">
@@ -103,34 +103,23 @@
       }
 
       function populateDrink(drink) {
-        var div = $('#dynamic');
-        var title = $('<h3>', {style: "font-size: 60px; text-align: center; font-family: georgia"}).text("Edit "+drink.name);
-        var ul = $('<ul>', {style: "font-size: 20px; margin-top: 40px"})
-        for (var i=0; i<drink.ingredients.length; i++){
-          var li = $('<li>').text(drink.ingredients[i]);
-          ul.append(li);
-        }
-        var instructions = drink.directions;
-        ul.append($('<br>')).append(instructions);
-        div.prepend(ul).prepend(title);
-        $('#left-col').prepend($('<img>', {src: drink.url, style: "width: 300px; float: left; margin-right: 20px; margin-bottom: 60px"}));
+          var drinkName = $('#drinkName');
+          drinkName.attr('value', drink.name);
 
+          var header = $('#header');
+          $("#header").html(drink.name);
 
-        var num = Math.min(6, drink.tags.length);
-        for (var j=0; j<num; j++) {
-          var tag = drink.tags[j];
-          var drinkHref = $('<a>', {href: getRelativeHref("/searchresults.html?results="+tag)});
-          if ($.inArray(tag, alcoholList) > -1) {
-            var button = $('<button>', {title:"Purple tags are alcoholic", class: "btn btn-secondary", type: "button", style: "color: black; background-color: orchid; font-family: georgia" }).text(tag);
-          } else {
-            var button = $('<button>', {title:"Click a tag to search for it", class: "btn btn-secondary", type: "button", style: "color: black; font-family: georgia"}).text(tag);
-          }
-          drinkHref.append(button);
-          $('#left-col').append(drinkHref);
-        }
+          var tags = $('#tags');
+          tags.attr('value', drink.tags.join(", "));
 
+          var ingredients = $('#ingredients');
+          ingredients.attr('value', drink.ingredients.join(", "));
 
+          var directions = $('#directions');
+          directions.attr('value', drink.directions);
 
+          var imageURL = $('#imageURL');
+          imageURL.attr('value', drink.url);
       }
 
       $(document).ready(function() {
