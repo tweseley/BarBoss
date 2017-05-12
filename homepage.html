@@ -212,7 +212,7 @@
             popularHref.append(popularImage);
 
             var editImage = $('<img>', {src: "http://img.freepik.com/free-icon/edit-button_318-77528.jpg?size=338&ext=jpg", style: "width: 20px; height:20px; float:right; margin-left: 10px;"});
-            var editHref = $('<a>', {href: getRelativeHref("/editDrinkcard.html?drink="+drink.href)});
+            var editHref = $('<a>', {href: "changeDrink.html"});
             editHref.append(editImage)
 
             if (drink.name != "New Drink") {
@@ -222,9 +222,9 @@
                 var imageHref = $('<a>', {href: "addDrink.html"});
             }
             imageHref.append(img);
-            if (drink.name != "New Drink") {
-                title.append(editHref);
-            }
+            //if (drink.name != "New Drink") {
+                //title.append(editHref);
+            //}
             if (drink.tags.indexOf("popular") >= 0) {
                 title.append(popularHref);
             };
