@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -189,7 +190,7 @@
           var imageHref = $('<a>', {href: getRelativeHref("/drinkcard.html?drink="+drink.href)});
           imageHref.append(img);
           var editImage = $('<img>', {src: "http://img.freepik.com/free-icon/edit-button_318-77528.jpg?size=338&ext=jpg", style: "width: 20px; height:20px; float:right"});
-          var editHref = $('<a>', {href: getRelativeHref("#")});
+          var editHref = $('<a>', {href: getRelativeHref("/editDrinkcard.html?drink="+drink.href)});
           editHref.append(editImage)
           var favoriteImage = $('<img>', {src: "http://www.clker.com/cliparts/9/A/I/s/M/X/heart-fund-logo-md.png",
                 style: "width: 20px; height:20px; margin-left:5px; margin-bottom:5px", title:"Popular Drink"});
