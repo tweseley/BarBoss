@@ -104,6 +104,13 @@
       function populateDrink(drink) {
         var div = $('#dynamic');
         var title = $('<h3>', {style: "font-size: 60px; text-align: center; font-family: georgia"}).text(drink.name);
+
+        var editImage = $('<img>', {src: "http://img.freepik.com/free-icon/edit-button_318-77528.jpg?size=338&ext=jpg", style: "width: 40px; height:40px; float:right"});
+        var editHref = $('<a>', {href: getRelativeHref("/editDrinkcard.html?drink="+drink.href)});
+        editHref.append(editImage)
+
+        title.append(editHref)
+
         var ul = $('<ul>', {style: "font-size: 20px; margin-top: 40px"})
         for (var i=0; i<drink.ingredients.length; i++){
           var li = $('<li>').text(drink.ingredients[i]);
@@ -112,6 +119,7 @@
         var instructions = drink.directions;
         ul.append($('<br>')).append(instructions);
         div.prepend(ul).prepend(title);
+
         $('#left-col').prepend($('<img>', {src: drink.url, style: "width: 300px; float: left; margin-right: 20px; margin-bottom: 60px"}));
 
 
